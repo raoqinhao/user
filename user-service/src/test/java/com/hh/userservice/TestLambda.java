@@ -46,6 +46,16 @@ public class TestLambda {
         return roleList;
     }
 
+    @Test
+    public void testMergeTwoList2() {
+        List<Role> roleList = getRoleList();
+        List<Role> roleList1 = getRoleList();
+        List<Role> collect = roleList.stream().collect(Collectors.toCollection(() -> roleList1));
+        collect.forEach(e -> System.out.println(e));
+    }
+
+
+
 
     static int outerStaticNum;
     int outerNum;
