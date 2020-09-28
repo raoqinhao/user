@@ -52,6 +52,7 @@ public class TestLambda {
         List<Role> roleList1 = getRoleList();
         List<Role> collect = roleList.stream().collect(Collectors.toCollection(() -> roleList1));
         collect.forEach(e -> System.out.println(e));
+        System.out.println(collect);
     }
 
 
