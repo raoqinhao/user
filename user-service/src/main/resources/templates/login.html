@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>登录界面</title>
+    <link rel="stylesheet" th:href="@{../static/layui/css/layui.css}" href="../static/layui/css/layui.css">
+    <link rel="shortcut icon" th:href="@{../static/images/bg.jpg}" type="image/x-icon"/>
+    <style type="text/css">
+        body{
+            width: 1920px;
+            height: 1080px;
+            background-image: url("../static/images/bg.jpg");
+        }
+    </style>
+</head>
+<body>
+<div class="wrap-login" style="width: 330px;height: 350px;margin-top: 200px;margin-left: 800px;">
+    <div class="navbar" style="text-align: center;">
+        <span><h1>欢迎登录</h1></span>
+    </div>
+    <div class="loginBox" id="loginForm">
+        <div class="login-header" style="text-align: center">
+            <h2>登录平台</h2>
+        </div>
+        <div class="formBox">
+            <form class="layui-form">
+                <div class="layui-form-item">
+                    <label class="login-icon iconfont icon-account"></label>
+                    <input type="text" name="userName" placeholder="请输入账号"
+                           class="layui-input">
+                </div>
+                <div class="layui-form-item">
+                    <label class="login-icon iconfont icon-password"></label>
+                    <input type="password" name="password" placeholder="请输入密码"
+                           class="layui-input">
+                </div>
+                <div class="layui-form-item">
+                    <label class="login-icon iconfont icon-yzm"></label>
+                    <input type="text" id="verifyCode" name="verifyCode" placeholder="请输入验证码"
+                           class="layui-input" for="" style="width:210px;display:inline;">
+                    <img name="randImage" style="cursor:pointer;margin-top: -5px;" title="看不清，换一张"
+                         onclick="flushImage('1')" id="randImage1" th:src="@{/user/toVerifyCode}"
+                         width="108" height="36">
+                </div>
+                <div class="layui-form-item">
+                    <button class="layui-btn layui-btn-fluid loginBtn" type="submit" lay-filter="login" lay-submit="">
+                        登录
+                    </button>
+                </div>
+                <div class="layui-form-item">
+                    <button class="layui-btn layui-btn-fluid resetBtn" type="reset">重置</button>
+                </div>
+                <div class="layui-form-item">
+                    <button class="layui-btn layui-btn-fluid registerBtn" type="button" onclick="registerAccount();">
+                        注册
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<input type="hidden" id="contextPath" name="contextPath" th:value="${#request.getContextPath()}">
+</body>
+    <script th:src="@{../static/javascript/jquery.js}" src="../static/javascript/jquery.js"></script>
+    <script th:src="@{../static/layui/layui.js}" src="../static/layui/layui.js"></script>
+<script th:inline="javascript">
+    var contextPath = $("#contextPath").val();
+
+    //一般直接写在一个js文件中
+    layui.use(['layer', 'form'], function() {
+        var layer = layui.layer
+            , form = layui.form;
+
+        form.on("submit(login)",function (data) {
+            var userName = data.field.userName;
+            var password = data.field.password;
+            var verifyCode = data.field.verifyCode == undefined ? '' : data.field.verifyCode;
+            if (userName != '' && password != '' && verifyCode != '') {
+                sendLoginRequest(userName, password, verifyCode);
+            } else if (userName == '' || password == '') {
+                layer.msg('用户名或密码不能为空！', {icon: 5, offset: [height, width], time: 2000});
+            } else if (verifyCode == '') {
+                layer.msg('验证码不能为空！', {icon: 5, offset: [height, width], time: 2000});
+            }
+            return false;
+        })
+    });
+
+    function flushImage(id) {
+        document.getElementById("randImage" + id).src = contextPath
+            + "/user/toVerifyCode?" + Math.random();
+    }
+
+    function sendLoginRequest(userName, password, verifyCode) {
+        var url = contextPath + "/user/login";
+        var loginData = {
+            'username': userName,
+            'password': password,
+            'verifyCode': verifyCode,
+            'rememberMe': true,
+            'loginType': 1
+        };
+        var data = JSON.stringify(loginData);
+        var loadIndex = layer.load(3);
+        $.ajax({
+            type: "POST",
+            cache: false,
+            timeout: 10000,
+            url: url,
+            contentType: "application/json;charset=utf-8",
+            data: data,
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                layer.close(loadIndex);
+                //登录成功
+                if (data.code == '0') {
+                        location.href = contextPath + "/user/toIndex";
+                }else {
+                    layer.alert(data.message, {icon: 5});
+                }
+            },
+            error: function (xhr) {
+                layer.alert('登录失败！', {icon: 2});
+            }
+        });
+    }
+
+</script>
+</html>

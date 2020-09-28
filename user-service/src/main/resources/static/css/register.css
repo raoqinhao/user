@@ -1,0 +1,288 @@
+@font-face {
+    font-family: 'iconfont';
+    /* project id 933978 */
+    src: url('//at.alicdn.com/t/font_933978_j1t6s65p5ho.eot');
+    src: url('//at.alicdn.com/t/font_933978_j1t6s65p5ho.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_933978_j1t6s65p5ho.woff') format('woff'), url('//at.alicdn.com/t/font_933978_j1t6s65p5ho.ttf') format('truetype'), url('//at.alicdn.com/t/font_933978_j1t6s65p5ho.svg#iconfont') format('svg');
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 20px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-manual:before {
+    content: "\e617";
+    color: #2ac58e
+}
+
+.icon-service:before {
+    content: "\e616";
+    color: #2ac58e
+}
+
+.icon-qq:before {
+    content: "\e677";
+    color: #2ac58e
+}
+
+.icon-wechat:before {
+    content: "\e64f";
+    color: #2ac58e
+}
+
+body,
+html {
+    height: 100%;
+}
+
+.wrap-login {
+    position: relative;
+    left: 0;
+    top: 0;
+    padding: 146px 0 65px 0;
+    min-height: 100%;
+    box-sizing: border-box;
+    background-image: url(../images/beijing.jpg);
+    background-size: cover;
+    background-position: top center;
+}
+
+.navbar {
+    width: 780px;
+    height: 250px;
+    background-color: #000;
+    opacity: 0.5;
+    color: #fff;
+    position: absolute;
+    right: 475px;
+    top: 50%;
+    margin-top: -162px;
+    z-index: 1;
+}
+
+.navbar span {
+    font-size: 30px;
+    display: block;
+    padding: 35px 0;
+    text-align: center
+}
+
+.navbar h2 {
+    font-size: 28px;
+    display: block;
+    margin-bottom: 30px;
+    text-align: center
+}
+
+.navbar p {
+    font-size: 26px;
+    display: block;
+    text-align: center
+}
+
+.qr {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    z-index: 999;
+    margin-top: -105px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #91949f;
+    border-left: none
+}
+
+.qr > span {
+    position: absolute;
+    right: 3px;
+    top: 5px;
+}
+
+.qr > span:hover i {
+    color: red
+}
+
+.qr p {
+    text-align: center
+}
+
+.qrBox {
+    width: 110px;
+    height: 110px;
+    margin-bottom: 5px
+}
+
+.qrBox img {
+    width: 100%;
+    display: block;
+    height: auto;
+}
+
+.registerBox {
+    width: 390px;
+    z-index: 2;
+    position: absolute;
+    right: 135px;
+    top: 50%;
+    margin-top: -270px;
+    /* margin: 0 auto; */
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.register .layui-input:focus {
+    border-color: #0b90cb !important
+}
+
+.register-header {
+    text-align: center;
+    padding: 48px 0 5px 0;
+    position: relative;
+}
+
+.register-header h2 {
+    font-weight: 700;
+}
+
+.register-header img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -89px;
+    margin-left: -50px;
+}
+
+.register-body {
+    padding: 45px 20px 60px 20px
+}
+
+.footer {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.bottom-column {
+    padding: 15px 0;
+    background-color: #2cbf8a;
+    height: 70px;
+}
+
+.columnBox {
+    border-right: 1px solid #fff;
+    height: 71px;
+    text-align: center
+}
+
+.friendship-link span {
+    float: left;
+    color: #fff
+}
+
+.friendship-link ul {
+    float: left;
+    padding-left: 40px;
+    width: 282px;
+    text-align: left;
+}
+
+.friendship-link ul li {
+    display: inline-block;
+    margin: 0 20px 5px 0;
+}
+
+.friendship-link ul li a {
+    color: #fff
+}
+
+.operation-manual .columnBox {
+    line-height: 71px;
+}
+
+.accommodating-device {
+    float: left;
+    width: 40px;
+    height: 40px;
+    margin: 15px;
+    border-radius: 50%;
+    line-height: 40px;
+    text-align: center;
+    background-color: #004f2f
+}
+
+.hotline .hotlineBox ul li {
+    color: #fff;
+    margin: 2px 0
+}
+
+.onlineBox span {
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+.onlineBox p {
+    color: #fff
+}
+
+.wechatBox span {
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+.wechatBox p {
+    color: #fff
+}
+
+.bar-bottom {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    background-color: #434343
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.returnBtn {
+    background-color: #fe9659
+}
+
+#layer-tip {
+    padding: 20px 50px;
+    text-align: center;
+    display: none
+}
+
+#layer-tip .register-success {
+    font-size: 24px;
+    margin: 20px 0
+}
+
+#layer-tip .tip {
+    font-size: 18px;
+    margin-bottom: 40px;
+    color: #555
+}
+
+#layer-tip .layui-layer-btn {
+    width: 100%
+}
+
+#layer-tip .yesBtn {
+    background-color: #fe9659
+}
+
+.registerBtn {
+    background-color: #4d7aff
+}

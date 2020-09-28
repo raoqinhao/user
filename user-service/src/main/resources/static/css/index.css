@@ -1,0 +1,4 @@
+* { margin: 0; padding: 0; }
+#top{width: 1920px;height: 300px; background: #0C0C0C; float: left;}
+#left{width: 300px;height: 780px; background: #0dcebb;float: left;}
+#right{width: 1620px;height: 780px; background: #01ccb8;float: left;}

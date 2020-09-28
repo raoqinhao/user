@@ -1,0 +1,126 @@
+.tab-nav {
+    right: 7px;
+    width: inherit;
+}
+
+.second-tab-content {
+    position: absolute;
+    left: 0;
+    width: 100%;
+}
+
+.second-tab-title {
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.second-tab-title li {
+    padding: 0 5px;
+}
+
+.elementsDiv {
+    border: 1px solid #FF8700;
+    border-radius: 5px;
+    width: max-content;
+    padding: 5px;
+    float: left;
+    margin-left: 5px;
+    /*background-color: #4ec8ff;*/
+
+}
+
+.elementsDiv span {
+    /*color: white;*/
+}
+
+.elementsDiv i {
+    font-size: 14px;
+    /*color: white;*/
+}
+
+.elementsInput {
+    height: 28px;
+}
+
+.layui-form-label {
+    width: auto;
+    color: black;
+}
+
+.second-tab-title li {
+    color: #666;
+    display: block;
+    /*border: 1px solid #4ec8ff;*/
+    border-radius: 5px;
+    margin: 3px;
+    background-color: #EEE;
+}
+
+.second-tab-title li label {
+    color: #666;
+}
+
+.btn-cor {
+    background-color: #008df3;
+}
+
+
+.layui-form-radio > i:hover, .layui-form-radioed > i {
+    color: #42c3ff;
+}
+
+.layui-form-item .layui-input-inline {
+    margin-top: 3px;
+}
+
+.elementLi {
+    background-color: #EEE;
+    border: none !important;
+    border-radius: 5px !important;
+}
+
+.elementLi.layui-this {
+    background-color: #EEE !important;
+    color: #FF8700 !important;
+    border: 1px solid #FF8700 !important;
+}
+
+.secondLiSelected {
+    background-color: #FF8700 !important;
+    color: #FFFFFF !important;
+}
+
+.first-tab-title li {
+    margin: 5px;
+}
+
+.first-tab-title {
+    white-space: normal;
+}
+
+.first-tab-title li:first-child {
+    margin-left: 0;
+}
+
+.ction-bar {
+    position: absolute;
+    right: 0;
+    z-index: 9999;
+    display: inline-block;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: -2px;
+    margin-right: 10px;
+}
+
+.ction-bar .layui-btn {
+    height: 30px;
+    line-height: 30px;
+    border-radius: 5px;
+}
+
+.Safety-supervision-form .layui-table-page {
+    padding-right: 215px;
+}

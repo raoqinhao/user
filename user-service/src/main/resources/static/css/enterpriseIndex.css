@@ -1,0 +1,628 @@
+@font-face {
+    font-family: 'iconfont';  /* project id 1434611 */
+    src: url('//at.alicdn.com/t/font_1434611_6lp9uy4anpc.eot');
+    src: url('//at.alicdn.com/t/font_1434611_6lp9uy4anpc.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_1434611_6lp9uy4anpc.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_1434611_6lp9uy4anpc.woff') format('woff'),
+    url('//at.alicdn.com/t/font_1434611_6lp9uy4anpc.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_1434611_6lp9uy4anpc.svg#iconfont') format('svg');
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-quit:before {
+    content: "\e60c";
+    font-size: 15px;
+    color: #ff0000;
+}
+
+.icon-news:before {
+    content: "\e63f";
+}
+
+.icon-li1:before {
+    content: "\e608";
+}
+
+.icon-li2:before {
+    content: "\e6c4";
+}
+
+.icon-li3:before {
+    content: "\e612";
+}
+
+.icon-li4:before {
+    content: "\e60d";
+}
+
+.icon-li5:before {
+    content: "\e602";
+}
+
+.icon-li6:before {
+    content: "\e86a";
+}
+
+.icon-li7:before {
+    content: "\e615";
+}
+
+.icon-li8:before {
+    content: "\e6d0";
+}
+
+.icon-li9:before {
+    content: "\e619";
+}
+
+.icon-li10:before {
+    content: "\e600";
+}
+
+.icon-li11:before {
+    content: "\e613";
+}
+
+.icon-li12:before {
+    content: "\e64c";
+}
+
+.icon-li13:before {
+    content: "\e6e8";
+}
+
+.icon-li14:before {
+    content: "\e69a";
+}
+
+.red-m {
+    color: red
+}
+
+body,
+html {
+    height: 100%;
+}
+
+#wrapper {
+    width: 100%;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+.header {
+    height: 70px;
+    background: url("../images/enterprise/top.png") no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    display: flex;
+}
+
+.title {
+    height: 70px;
+    line-height: 70px;
+    color: #fff;
+    font-size: 20px;
+    text-align: left;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+
+.header-right {
+    display: flex;
+    flex: 1;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+
+.login-warpper {
+    position: relative;
+}
+
+.log-in {
+    padding: 3px 15px 3px 3px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: #6f6f6f;
+    box-sizing: border-box;
+    border-radius: 100px;
+    background-color: #ffffff;
+    cursor: pointer;
+    min-width: 120px;
+}
+
+.log-in i {
+    cursor: pointer;
+}
+
+.login-list {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    min-width: 100%;
+    line-height: 24px;
+    padding: 5px 0;
+    border: 1px solid #d2d2d2;
+    background-color: #fff;
+    z-index: 100;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+.login-list ul li {
+    display: block;
+    padding: 0 20px;
+    text-align: center;
+    line-height: 36px;
+    color: rgba(0, 0, 0, .7);
+    transition: all .3s;
+    cursor: pointer;
+    -webkit-transition: all .3s;
+}
+
+.login-list ul li:hover {
+    background-color: #ddd;
+}
+
+.head-portrait {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    background: #ddd;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.head-portrait .layui-icon {
+    color: #fff;
+}
+
+.userMark {
+    margin-top: -1px;
+}
+
+.enterprise-inform {
+    margin-top: 30px;
+    margin-right: 20px;
+    padding: 10px 0;
+    height: 40px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+.instruct {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 30px;
+    background: url("../images/enterprise/out.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.instruct span {
+    width: 50%;
+    line-height: 30px;
+    text-align: center;
+    padding-left: 32px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.instruct span.stop {
+    color: #000;
+}
+
+.instruct span i {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 3px;
+    font-size: 17px;
+    margin-top: -2px;
+}
+
+.header-right .user {
+    margin-right: 20px;
+    color: #fff;
+    font-size: 15px;
+}
+
+.header-right .quit {
+    margin: 0 40px
+}
+
+#mainContent {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 70px;
+    background-color: #def0f2;
+}
+
+
+.side-menu {
+    position: absolute;
+    width: 210px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    bottom: 0;
+    top: 0px;
+    left: 0;
+    background-color: #b9dcee;
+}
+
+
+.side-menu-title {
+    /*height: 80px;*/
+    min-height: 80px;
+    display: block;
+    background-color: #2a343d;
+    padding: 15px 0 0 17px;
+    box-sizing: border-box
+}
+
+.side-menu-title h1 {
+    width: 180px;
+    font-size: 20px;
+    color: #fff
+}
+
+
+.bg-blue {
+    background-color: #3ac8f8
+}
+
+.bg-green {
+    background-color: #53bf83
+}
+
+.bg-orange {
+    background-color: #e77e23
+}
+
+.bg-red {
+    background-color: #ff0914
+}
+
+.bg-blueLight {
+    background-color: #0065c4
+}
+
+
+.tip {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    line-height: 18px;
+    margin-right: 10px;
+    border-radius: 50%;
+    font-style: inherit;
+}
+
+.fg {
+    background-image: url(../images/enterprise/kuang.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%
+}
+
+.fg:hover {
+    background-image: url(../images/enterprise/kuang.png) !important;
+}
+
+.fixed-right {
+    position: absolute;
+    right: 9px;
+}
+
+.side-list {
+    padding: 0px;
+    height: 95.4%;
+    margin: 10px 0;
+}
+
+.layui-nav-tree {
+    width: 100%;
+    background-color: transparent;
+    box-sizing: border-box;
+}
+
+.layui-nav-tree .layui-nav-item {
+    display: block;
+    width: 100%;
+    line-height: 50px;
+    margin-bottom: 8px;
+    border-radius: 3px;
+    font-size: 15px;
+}
+
+.layui-nav .layui-nav-item a {
+    color: #ffffff;
+    padding: 0 15px;
+}
+
+
+.hint h3 {
+    margin: 10px 0;
+    color: #000;
+    font-size: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.hint-src {
+    height: 100px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.hint-half {
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.risk-hint {
+    height: 130px;
+    background-color: #007fff;
+    border: 2px solid #000;
+    box-sizing: border-box;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.hint-half + .hint-half {
+    border-top: 2px solid #000;
+}
+
+.layui-nav-tree .layui-nav-more {
+    display: none;
+}
+
+.layui-nav-tree .layui-nav-item > a {
+    background-color: #186cc0;
+    border-radius: 3px;
+    height: 50px;
+    line-height: 50px;
+}
+
+.layui-nav-tree .layui-nav-itemed a {
+    background-color: #42c3ff;
+}
+
+.layui-nav-tree .layui-nav-item a:hover {
+    background-color: #42c3ff;
+}
+
+.layui-nav-itemed > .layui-nav-child {
+    margin: 15px 0;
+    padding: 0 10px;
+    background-color: transparent !important;
+    box-sizing: border-box;
+}
+
+.layui-nav-tree .layui-nav-child a {
+    height: 40px;
+    line-height: 40px;
+    border-radius: 3px;
+    background-color: #ff7f00;
+}
+
+.layui-nav-tree .layui-nav-child a:hover {
+    background-color: #ff7f00;
+}
+
+/*.fixed-bottom {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    color: #fff;
+    font-size: 16px
+}*/
+
+.reprt-item {
+    margin-top: 25px;
+    color: red;
+    padding: 0 13px;
+}
+
+.reprt-item img {
+    margin-right: 9px
+}
+
+.reprt-item span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.body-container {
+    position: absolute;
+    left: 210px;
+    bottom: 0;
+    top: 0px;
+    right: 0;
+    background-color: #def0f1;
+}
+
+#view {
+    border: 0;
+    overflow: auto
+}
+
+.tab-container {
+    padding: 10px 0;
+    box-shadow: 0 0 2px #4c99d1;
+    background-color: #4c99d1;
+}
+
+.tab-view {
+    height: 100%;
+}
+
+#userWarp {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.tab-view-list {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    align-items: center;
+}
+
+.tab-view-list li {
+    height: 41px;
+    text-align: center;
+    line-height: 41px;
+    color: #555555;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #EEEEEE;
+    margin-left: 8px;
+    position: relative;
+    padding: 0px 15px 0px 15px;
+    font-weight: 700;
+    font-size: 14px;
+    margin: 5px 0 5px 8px;
+}
+
+.tab-view-list li span i {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 21px;
+    margin-right: 4px;
+}
+
+.tab-view-list li.current {
+    color: #fff;
+    background-color: #42C3FF;
+}
+
+.news {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    color: #fff;
+    background-color: #ff0000;
+    line-height: 20px;
+    text-align: center;
+    display: inline-block;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+}
+
+
+.completion-degree {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2a343d
+}
+
+.degree {
+    width: 86px;
+    color: #fff
+}
+
+.tab-body .tab-item {
+    display: none
+}
+
+.tab-body .tab-item.current {
+    display: block
+}
+
+.tab-body {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.tab-item {
+    width: 100%;
+    height: 100%;
+}
+
+.layui-form {
+    padding-top: 5px
+}
+
+.layui-form .layui-form-label {
+    width: 150px
+}
+
+.layui-form .layui-input-inline {
+    width: 40%
+}
+
+.layui-input.multiple a {
+    padding: 4px 5px;
+    background: #28a8a9;
+    border-radius: 2px;
+    color: #fff;
+    display: block;
+    line-height: 20px;
+    height: 20px;
+    margin: 4px 5px 2px 0;
+    float: left;
+}
+
+.layui-form .flex-inline {
+    display: flex;
+    flex-wrap: wrap;
+    width: 51%;
+    justify-content: space-between
+}
+
+.layui-form .flex-inline .layui-form-select {
+    margin: 3px 0
+}
+
+.layui-logo {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1002;
+    width: auto;
+    height: 70px;
+    line-height: 70px;
+    font-weight: 300;
+}
+
+.layui-logo span {
+    color: #fff;
+    font-size: 1.8em;
+    float: left;
+    margin: 0 15px;
+}
+.layui-nav-tree .layui-nav-bar{
+    background-color: orange !important;
+}

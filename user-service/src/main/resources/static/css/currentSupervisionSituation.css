@@ -1,0 +1,394 @@
+.fall {
+    background-color: #ddeff1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: 1px solid #95d9ef;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+.header-tit {
+    margin: 10px 0px;
+    box-sizing: border-box;
+    background-image: url(../images/biaotou.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 100%;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    color: #14409d;
+}
+
+.box {
+    background-image: url(../images/leftk.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 850px;
+    margin-left: 5px;
+}
+
+.boxRight {
+    box-sizing: border-box;
+    padding: 10px;
+    background-image: url(../images/rightk.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 850px;
+    margin-left: 5px;
+}
+
+.content {
+    display: flex;
+    box-sizing: border-box;
+}
+
+.title {
+    height: 35px;
+    line-height: 35px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+}
+
+.tit-cur {
+    text-align: center;
+    height: 35px;
+    line-height: 50px;
+}
+
+.tit-cur span {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.tit-cur span + span {
+    color: black;
+    font-weight: bold;
+    margin-left: 70px;
+    font-size: 14px;
+
+}
+
+.tit-sur {
+    text-align: center;
+}
+
+.tit-sur span {
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.item {
+    box-sizing: border-box;
+    padding: 5px;
+    width: 100%;
+    display: flex;
+}
+
+.da-card {
+    background-image: url(../images/zhong.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 35px;
+    line-height: 35px;
+    margin: 0px 5px;
+    width: 50%;
+    padding: 0px 5px;
+    display: flex;
+    color: #0c3056;
+    justify-content: space-between;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.zhong-card {
+    background-image: url(../images/da.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 35px;
+    line-height: 35px;
+    margin: 0px 5px;
+    width: 30%;
+    padding: 0px 5px;
+    display: flex;
+    color: #0c3056;
+    justify-content: space-between;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.xiao-card {
+    background-image: url(../images/da.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 35px;
+    line-height: 35px;
+    margin: 0px 5px;
+    width: 25%;
+    padding: 0px 5px;
+    display: flex;
+    color: #0c3056;
+    justify-content: space-between;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.chang-card {
+    background-image: url(../images/zhong.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 35px;
+    line-height: 35px;
+    margin: 0px 5px;
+    width: 100%;
+    padding: 0px 5px;
+    display: flex;
+    color: #0c3056;
+    justify-content: space-between;
+}
+
+
+
+.sel {
+    border-radius: 5px;
+    border: none;
+    background-color: #add9df;
+    height: 28px;
+    line-height: 28px;
+    width: 60px;
+    margin: 10px 8px;
+    cursor: pointer;
+}
+
+.sell {
+    border-radius: 5px;
+    border: none;
+    background-color: transparent;
+    height: 30px;
+    line-height: 30px;
+    min-width: 100px;
+    cursor: pointer;
+}
+
+.dbl {
+    background-image: url(../images/pang.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.fz {
+    background-image: url(../images/bian-kuang.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.tip{
+    padding: 8px;
+    height: 100%;
+    box-sizing: border-box;
+}
+.con{
+    overflow: hidden;
+    box-sizing: border-box;
+    height: 100%;
+    border-radius: 10px;
+    width: 100%;
+}
+.se .layui-form-select .layui-input{
+    background-color: transparent !important;
+    border: none !important;
+    color: #0c3056;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.xuan-z{
+    height: 28px;
+    width:70px;
+    margin-right: 10px;
+}
+.xuan-z .layui-form-select .layui-input{
+    border-radius: 5px;
+    border: none;
+    background-color:
+            #add9df;
+    height: 28px;
+    line-height: 28px;
+    width: 70px;
+    margin: 10px 8px;
+    color: #0c3056;
+}
+.layui-form-select .layui-edge{
+    right: 0px !important;
+    border-width: 7px !important;
+    border-top-color:#0c3056!important;
+}
+.sct{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+}
+.xuan-z .layui-form-select dl{
+    left: 8px !important;
+}
+.visb{
+    color: #5f94ca;
+    cursor: pointer;
+}
+.xt{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.se{
+    display: flex;
+    justify-content: space-between;
+}
+.dbl .tit-sur{
+    margin-bottom: 0px;
+}
+.dbl:last-child .tit-sur{
+    margin-bottom: 10px;
+}
+.dbl .tit-sur span{
+    font-size: 14px;
+}
+.dbl .card{
+    margin-bottom: 0px;
+}
+.dbl:last-child .card{
+    margin-bottom: 5px;
+}
+.list{
+    width: 100px;
+    background-color: transparent;
+    height: 25px;
+    display: flex;
+    border-radius: 50px;
+    margin: 0px 10px;
+    border: 1px solid #71bfcb;
+}
+.tom{
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    line-height: 25px;
+    height: 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    color: #0c3056;
+}
+.list2{
+    min-width: 150px;
+    background-color: transparent;
+    height: 25px;
+    display: flex;
+    margin: 0px 10px;
+    border-radius: 50px;
+    border: 1px solid #71bfcb;
+}
+.tom2{
+    min-width: 50px;
+    height: 100%;
+    text-align: center;
+    line-height: 25px;
+    height: 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    color: #0c3056;
+    box-sizing: border-box;
+    padding: 0px 10px;
+}
+.action{
+    background-color: #71bfcb;
+}
+.dbl .title{
+    height: 40px;
+    line-height: 35px;
+}
+.dbl .chang-card{
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+}
+.dbl .xiao-card{
+    height: 30px;
+    line-height: 30px;
+}
+.dbl .se .layui-form-select .layui-input{
+    line-height: 30px;
+    height: 30px;
+}
+.jiantou{
+    margin-left: 10px;
+    cursor: pointer;
+    width: 0;
+    height: 0;
+    border-top: 8px solid #0c3056;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+}
+.xuanfu{
+    width: 100%;
+    position: absolute;
+    top: 22px;
+    left: 0px;
+    z-index: 999;
+}
+.xuanfu-b{
+    width: 100%;
+    position: absolute;
+    bottom: 22px;
+    left: 0px;
+    z-index: 999;
+}
+.layui-table td, .layui-table th{
+    min-height: 15px;
+    line-height: 15px;
+}
+.layui-table{
+    border: 1px solid #2f86cd;
+    background-color: #e1faff !important;
+}
+.layui-table thead tr{
+    color: #0c3056;
+    background-color: #e1faff !important;
+}
+.layui-table td, .layui-table th{
+    border: none;
+    border: 1px;
+    border-bottom-color: #dddddd;
+    border-bottom-style: dashed !important;
+}
+.layui-table td{
+    color: #0C0C0C !important;
+}
+.piao{
+    position: absolute;
+    min-width: 100px;
+    min-height: 22px;
+    border: 1px solid #2f86cd;
+    top: 77px;
+    left: 26px;
+    background-color: #fff;
+    color: #000;
+    padding: 5px;
+    box-sizing: border-box;
+}
+.ye{
+    background-color: #42C3FF !important;
+    color: #fff !important;
+}
+.ENTERPRISE{
+    cursor: pointer;
+}
+.anchorBL{display:none;}
+.gaoh tr{
+    height: 25px;
+    line-height: 25px;
+}
