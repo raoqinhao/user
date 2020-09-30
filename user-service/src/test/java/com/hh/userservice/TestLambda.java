@@ -40,11 +40,33 @@ public class TestLambda {
     private static List<Role> getRoleList() {
         List<Role> roleList = new ArrayList<>();
         roleList.add(new Role("1","zhangsan","123",null));
-        roleList.add(new Role("2","lisi","123456",null));
+        roleList.add(new Role("5","lisi","123456",null));
         roleList.add(new Role("3","wangwu","123456789",null));
-        roleList.add(new Role("4","zhaoqi","1234567890",null));
+        roleList.add(new Role("5","zhaoqi","123",null));
         return roleList;
     }
+
+
+    @Test
+    public void testSortRoleList() {
+        List<Role> roleList = getRoleList();
+        roleList.forEach(e -> System.out.println(e));
+        System.out.println("--------");
+        List<Role> newRoleList = roleList.stream().sorted(Comparator.comparing(Role::getPermissionId).reversed()).sorted(Comparator.comparing(Role::getRoleId).reversed()).collect(Collectors.toCollection(ArrayList::new));
+        newRoleList.forEach(e -> System.out.println(e));
+    }
+
+
+    @Test
+    public void testGetObject() {
+        List<User> userList = getUserList();
+        userList.forEach(e -> System.out.println(e));
+        System.out.println("---------");
+        List<User> newUserList = userList.stream().sorted(Comparator.comparingInt(User::getUserAge).reversed()).collect(Collectors.toCollection(ArrayList::new));
+        newUserList.forEach(e -> System.out.println(e));
+    }
+
+
 
     @Test
     public void testMergeTwoList2() {
