@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.hh.userservice.inter.Person;
+import com.hh.userservice.pojo.Permission;
 import com.hh.userservice.pojo.Role;
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -39,11 +40,80 @@ public class TestLambda {
 
     private static List<Role> getRoleList() {
         List<Role> roleList = new ArrayList<>();
-        roleList.add(new Role("1","zhangsan","123",null));
-        roleList.add(new Role("5","lisi","123456",null));
-        roleList.add(new Role("3","wangwu","123456789",null));
-        roleList.add(new Role("5","zhaoqi","123",null));
+        Set<Permission> permissions = new HashSet<>();
+        Set<Permission> permissions1 = new HashSet<>();
+        Set<Permission> permissions2 = new HashSet<>();
+        Permission permission = new Permission("1","permission_role");
+        Permission permission1 = new Permission("2","permission_info");
+        Permission permission2 = new Permission("3","permission_level");
+        permissions.add(permission);
+        permissions1.add(permission1);
+        permissions2.add(permission2);
+        roleList.add(new Role("1","zhangsan","123",permissions));
+        roleList.add(new Role("5","lisi","123456",permissions1));
+        roleList.add(new Role("3","wangwu","123456789",permissions2));
+        roleList.add(new Role("5","zhaoqi","123",permissions2));
         return roleList;
+    }
+
+    private static List<Role> getEmptyRoleList() {
+        List<Role> roleList = new ArrayList<>();
+        return roleList;
+    }
+
+
+    @Test
+    public void testHashMapStream() {
+        List<User> userList = getUserList();
+        String collect = userList.stream().map(User::getUserName).collect(Collectors.joining());
+        System.out.println(collect);
+    }
+
+    @Test
+    public void testGetMaxByReduce() {
+        List<User> userList = getUserList();
+        Optional<Integer> reduce = userList.stream().map(User::getUserAge).reduce(Math::max);
+        Objects.requireNonNull(reduce.get());
+        System.out.println(reduce.get());
+//        Optional<Object> empty = null;
+//        Objects.requireNonNull(empty.get());
+        Object[] a = {1,2,3};
+        Object[] b = {1,2,3};
+        boolean status = Arrays.deepEquals(a, b);
+        System.out.println(status);
+    }
+
+
+    @Test
+    public void testFlatMapData() {
+        List<Role> roleList = getRoleList();
+        Set<Permission> collect = roleList.stream().flatMap(e -> e.getPermissions().stream()).collect(Collectors.toSet());
+        collect.forEach(e -> System.out.println(e));
+        System.out.println("---------------");
+        List<Permission> collect1 = roleList.stream().flatMap(e -> e.getPermissions().stream()).collect(Collectors.toList());
+        collect1.forEach(e -> System.out.println(e));
+    }
+
+
+
+    @Test
+    public void testSetUserData() {
+        List<User> userList = getUserList();
+        userList.forEach(e -> System.out.println(e));
+        List<User> testSetUser = userList.stream().map(user -> {
+            User newUser = user;
+            newUser.setUserName("测试对象");
+            return newUser;
+        }).collect(Collectors.toCollection(ArrayList::new));
+        testSetUser.forEach(e -> System.out.println(e));
+    }
+
+
+    @Test
+    public void testEmptyRoleList() {
+        List<Role> emptyRoleList = getEmptyRoleList();
+        String collect = emptyRoleList.stream().collect(Collectors.mapping(Role::getName, Collectors.joining("||")));
+        System.out.println(collect);
     }
 
 
