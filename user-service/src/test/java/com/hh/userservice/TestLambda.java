@@ -95,6 +95,20 @@ public class TestLambda {
     }
 
 
+    @Test
+    public void testHashMapStream1() {
+        Map<String, String> map = new HashMap<>();
+        map.putIfAbsent("zhangsan","19");
+        map.putIfAbsent("lisi","29");
+        map.putIfAbsent("lisi","20");
+        map.forEach((key,value) -> System.out.println(key + " " + value));
+        System.out.println("---------");
+        map.put("zhangsan","19");
+        map.put("lisi","29");
+        map.put("lisi","20");
+        map.forEach((key,value) -> System.out.println(key + " " + value));
+    }
+
 
     @Test
     public void testSetUserData() {
