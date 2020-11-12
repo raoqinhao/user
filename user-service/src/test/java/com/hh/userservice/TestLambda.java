@@ -12,7 +12,6 @@ import org.junit.Test;
 import org.springframework.core.convert.converter.Converter;
 
 import java.util.*;
-import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.regex.Pattern;
@@ -56,11 +55,81 @@ public class TestLambda {
         return roleList;
     }
 
+
+
+    @Test
+    public void testMathRandom() {
+        while (true) {
+            int random = (int) (Math.random() * 10) + 1;
+            System.out.println(random);
+        }
+    }
+
+    @Test
+    public void testModulo() {
+        int result_1 = 5/3;
+        int result_2 = 5%3;
+        System.out.println(result_1 + " " + result_2);
+    }
+
+
+    @Test
+    public void testStringFormat() {
+        for (int i = 0; i < 5; i++) {
+            String month = String.format("%02d", i);
+            System.out.println(month);
+            String month1 = String.format("%2d", i);
+            System.out.println(month1);
+            String month2 = String.format("%d", i);
+            System.out.println(month2);
+        }
+        System.out.println(String.format("%s:%s:%s",1,2,3));
+    }
+
+
+
+    @Test
+    public void reverseArray() {
+        List intArray = getIntArray();
+        System.out.println(intArray);
+        int[] arr = new int[]{1,2,3,4,5};
+        long[] longs = IntStream.rangeClosed(1, arr.length).mapToLong(e -> arr[arr.length - e]).toArray();
+        Arrays.stream(longs).forEach(e -> System.out.println(e));
+        System.out.println("------------");
+        int[] array = new int[]{1,2,3,4,5};
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i]);
+        }
+        Collections.reverse(Arrays.asList(array));
+        System.out.println("-----");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i]);
+        }
+    }
+
+    private static List getIntArray() {
+        List<Integer> integers = new ArrayList<>();
+        for (int i = 1; i <= 10; i++) {
+            integers.add(i);
+        }
+        return integers;
+    }
+
     private static List<Role> getEmptyRoleList() {
         List<Role> roleList = new ArrayList<>();
+        roleList.add(new Role(UUID.randomUUID().toString().replaceAll("-",""),"admin","permission_1",null));
+        roleList.add(new Role(UUID.randomUUID().toString().replaceAll("-",""),"ordinary","permission_1",null));
         return roleList;
     }
 
+    public static void main(String[] args) {
+        getStringLength();
+    }
+
+    public static void getStringLength() {
+        String a = "";
+        System.out.println(a.length());
+    }
 
     @Test
     public void testHashMapStream() {
@@ -128,6 +197,9 @@ public class TestLambda {
         List<Role> emptyRoleList = getEmptyRoleList();
         String collect = emptyRoleList.stream().collect(Collectors.mapping(Role::getName, Collectors.joining("||")));
         System.out.println(collect);
+        String roleNames = emptyRoleList.stream().collect(Collectors.mapping(Role::getName, Collectors.joining("','","'","'")));
+        System.out.println(roleNames);
+//        Collectors.toConcurrentMap()
     }
 
 
@@ -203,6 +275,7 @@ public class TestLambda {
             System.out.println(b);
             assert b ? true : false;
         } catch (Exception e) {
+            e.printStackTrace();
             System.out.println("断言失败");
         }
     }
