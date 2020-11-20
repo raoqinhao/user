@@ -52,4 +52,8 @@ public class TestBigDecimal {
         //测试
     }
 
+    @Test
+    public void test01() {
+
+    }
 }
