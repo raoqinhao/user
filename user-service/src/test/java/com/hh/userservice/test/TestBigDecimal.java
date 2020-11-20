@@ -47,4 +47,9 @@ public class TestBigDecimal {
         System.out.println(divide2);
     }
 
+    @Test
+    public void dev01() {
+
+    }
+
 }
