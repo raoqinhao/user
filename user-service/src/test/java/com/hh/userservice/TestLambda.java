@@ -75,7 +75,7 @@ public class TestLambda {
 
     @Test
     public void testStringFormat() {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 1; i++) {
             String month = String.format("%02d", i);
             System.out.println(month);
             String month1 = String.format("%2d", i);
