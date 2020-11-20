@@ -64,4 +64,9 @@ public class TestBigDecimal {
     public void pro02() {
 
     }
+    
+    @Test
+    public void play02() {
+
+    }
 }
