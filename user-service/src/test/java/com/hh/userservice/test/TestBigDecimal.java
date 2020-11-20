@@ -17,4 +17,14 @@ public class TestBigDecimal {
     }
 
 
+    @Test
+    public void testMultiplyBigDecimal() {
+        BigDecimal bigDecimal = new BigDecimal("11.111");
+        BigDecimal bigDecima2 = new BigDecimal("1.11");
+        BigDecimal result1 = bigDecimal.multiply(bigDecima2);
+        System.out.println(result1);
+        BigDecimal result2 = bigDecimal.multiply(bigDecima2).setScale(2, BigDecimal.ROUND_HALF_UP);
+        System.out.println(result2);
+    }
+
 }
