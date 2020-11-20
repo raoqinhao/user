@@ -27,4 +27,15 @@ public class TestBigDecimal {
         System.out.println(result2);
     }
 
+
+    @Test
+    public void testDivideBigDecimal() {
+        BigDecimal bigDecimal = new BigDecimal("2.22");
+        BigDecimal bigDecima2 = new BigDecimal("2.22");
+        BigDecimal divide1 = bigDecimal.divide(bigDecima2);
+        System.out.println(divide1);
+        BigDecimal divide2 = bigDecimal.divide(bigDecima2).setScale(1, BigDecimal.ROUND_HALF_UP);
+        System.out.println(divide2);
+    }
+
 }
