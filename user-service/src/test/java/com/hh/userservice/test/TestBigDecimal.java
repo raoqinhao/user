@@ -58,4 +58,10 @@ public class TestBigDecimal {
     public void test02() {
         
     }
+
+
+    @Test
+    public void pro02() {
+
+    }
 }
