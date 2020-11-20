@@ -50,7 +50,7 @@ public class TestBigDecimal {
 
     @Test
     public void testDev02() {
-        
+
     }
 
 }
