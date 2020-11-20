@@ -37,6 +37,16 @@ public class TestBigDecimal {
         System.out.println(result2);
     }
 
+    @Test
+    public void testSubtractBigDecimal() {
+        BigDecimal bigDecimal = new BigDecimal("12.33251");
+        BigDecimal bigDecima2 = new BigDecimal("6.47251");
+        BigDecimal result1 = bigDecimal.subtract(bigDecima2).setScale(1, BigDecimal.ROUND_HALF_UP);
+        System.out.println(result1);
+        BigDecimal result2 = bigDecimal.subtract(bigDecima2).setScale(1, BigDecimal.ROUND_HALF_UP);
+        System.out.println(result2);
+
+    }
 
     @Test
     public void testDivideBigDecimal() {
