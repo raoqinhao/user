@@ -47,46 +47,4 @@ public class TestBigDecimal {
         System.out.println(divide2);
     }
 
-    @Test
-    public void dev01() {
-        //测试
-    }
-
-
-    @Test
-    public void testDev02() {
-        //02
-    }
-
-    @Test
-    public void test01() {
-
-    }
-
-    @Test
-    public void pro01() {
-
-    }
-
-
-    @Test
-    public void cs01() {
-
-    }
-
-    @Test
-    public void pro02() {
-
-    }
-
-    @Test
-    public void play02() {
-        //02
-    }
-
-
-    @Test
-    public void play01() {
-
-    }
 }
