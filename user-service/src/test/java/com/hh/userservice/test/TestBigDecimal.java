@@ -3,6 +3,8 @@ package com.hh.userservice.test;
 import org.junit.Test;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
 
 public class TestBigDecimal {
 
@@ -45,6 +47,14 @@ public class TestBigDecimal {
         System.out.println(divide1);
         BigDecimal divide2 = bigDecimal.divide(bigDecima2).setScale(1, BigDecimal.ROUND_HALF_UP);
         System.out.println(divide2);
+    }
+
+    @Test
+    public void testOtherMethod() {
+        BigDecimal bigDecimal = new BigDecimal("-123.123");
+        BigDecimal bigDecima2 = new BigDecimal("456.456");
+        BigDecimal abs = bigDecimal.abs(new MathContext(5, RoundingMode.HALF_UP));
+        System.out.println(abs);
     }
 
 }
