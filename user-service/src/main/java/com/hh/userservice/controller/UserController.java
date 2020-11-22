@@ -6,6 +6,10 @@ import com.hh.userservice.config.SpringApplicationUtils;
 import com.hh.userservice.config.UserEnum;
 import com.hh.userservice.pojo.UserBean;
 import com.hh.userservice.service.UserService;
+import com.hh.userservice.strategy.Strategy;
+import com.hh.userservice.strategy.StrategyAdd;
+import com.hh.userservice.strategy.StrategyMul;
+import com.hh.userservice.strategy.StrategySub;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
@@ -13,11 +17,9 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.Cookie;
@@ -221,4 +223,26 @@ public class UserController {
         }
         return "logout";
     }
+
+
+    @RequestMapping(value = "/calculater/{type}")
+    @ResponseBody
+    public int getCalculater(@PathVariable String type, HttpServletRequest request) throws Exception{
+        int num1 = Integer.valueOf(request.getParameter("num1")).intValue();
+        int num2 = Integer.valueOf(request.getParameter("num2")).intValue();
+        Strategy strategy = null;
+        switch (type) {
+            case "Add":
+               strategy  = (StrategyAdd) SpringApplicationUtils.getBean("strategyAdd");
+                break;
+            case "Sub":
+                strategy = (StrategySub) SpringApplicationUtils.getBean("strategySub");
+                break;
+            case "Mul":
+                strategy = (StrategyMul) SpringApplicationUtils.getBean("strategyMul");
+                break;
+        }
+        return strategy.calculate(num1,num2);
+    }
+
 }
