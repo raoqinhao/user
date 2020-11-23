@@ -87,6 +87,23 @@ public class TestLambda {
     }
 
 
+    @Test
+    public void testIntStreamRange() {
+        IntStream.rangeClosed(0,5).forEach(e -> System.out.println(e));
+    }
+
+
+    @Test
+    public void testBaseTypeData() {
+        int x = 0;
+        List<String> strings = new ArrayList<>();
+        strings.add("1");
+        strings.add("2");
+        strings.add("3");
+        List<String> collect = strings.stream().map(e -> e + x).collect(Collectors.toCollection(ArrayList::new));
+        collect.forEach(e -> System.out.println(e));
+    }
+
 
     @Test
     public void reverseArray() {
