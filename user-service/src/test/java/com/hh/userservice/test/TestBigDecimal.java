@@ -3,6 +3,8 @@ package com.hh.userservice.test;
 import org.junit.Test;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
 
 public class TestBigDecimal {
 
@@ -48,45 +50,11 @@ public class TestBigDecimal {
     }
 
     @Test
-    public void dev01() {
-        //测试
+    public void testOtherMethod() {
+        BigDecimal bigDecimal = new BigDecimal("-123.123");
+        BigDecimal bigDecima2 = new BigDecimal("456.456");
+        BigDecimal abs = bigDecimal.abs(new MathContext(5, RoundingMode.HALF_UP));
+        System.out.println(abs);
     }
 
-
-    @Test
-    public void testDev02() {
-        //02
-    }
-
-    @Test
-    public void test01() {
-
-    }
-
-    @Test
-    public void pro01() {
-
-    }
-
-
-    @Test
-    public void cs01() {
-
-    }
-
-    @Test
-    public void pro02() {
-
-    }
-
-    @Test
-    public void play02() {
-        //02
-    }
-
-
-    @Test
-    public void play01() {
-
-    }
 }
