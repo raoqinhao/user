@@ -88,6 +88,20 @@ public class TestLambda {
 
 
     @Test
+    public void testzhuangyi() {
+        String str = "abc||def||hij";
+        int i = str.indexOf("||");
+        System.out.println(i);
+    }
+
+    @Test
+    public void testSplitString() {
+        String str = "abc||def||hij";
+        String[] split = str.split("\\|\\|");
+        Arrays.stream(split).forEach(e -> System.out.println(e));
+    }
+
+    @Test
     public void testIntStreamRange() {
         IntStream.rangeClosed(0,5).forEach(e -> System.out.println(e));
     }
