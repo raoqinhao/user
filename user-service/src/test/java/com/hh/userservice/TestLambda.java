@@ -108,6 +108,24 @@ public class TestLambda {
 
 
     @Test
+    public void testBaseDataCalculator() {
+        int x = 1;
+        List<Integer> integers = new ArrayList<>();
+        integers.add(1);
+        integers.add(2);
+        integers.add(3);
+        List<Integer> collect = integers.stream().map(e -> e + x).collect(Collectors.toCollection(ArrayList::new));
+        collect.forEach(e -> System.out.println(e));
+    }
+
+    @Test
+    public void testSumSumNum() {
+        int i = 0;
+        System.out.println(++i);
+        System.out.println(i++);
+    }
+
+    @Test
     public void testBaseTypeData() {
         int x = 0;
         List<String> strings = new ArrayList<>();
