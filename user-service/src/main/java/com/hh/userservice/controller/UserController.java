@@ -245,4 +245,13 @@ public class UserController {
 //        return strategy.calculate(num1,num2);
 //    }
 
+
+    @RequestMapping("findUserById/{id}")
+    @ResponseBody
+    public String findUserById(@PathVariable String id) {
+        List<com.hh.userservice.model.UserBean> userBean = userService.findUserById(id);
+        return JSONObject.toJSONString(userBean);
+    }
+
+
 }

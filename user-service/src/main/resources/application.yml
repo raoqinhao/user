@@ -18,3 +18,5 @@ spring:
         content:
           enabled: true
           paths: /**
+mybatis:
+  mapper-locations: mappers/*.xml

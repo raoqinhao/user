@@ -9,4 +9,5 @@ public interface UserService {
 
     UserBean findUserBeanByUserBeanName(String username);
 
+    List<com.hh.userservice.model.UserBean> findUserById(String id);
 }
