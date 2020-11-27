@@ -11,6 +11,12 @@ import java.util.Objects;
 public class TestObjects {
 
 
+    @Test
+    public void testStringFormat() {
+        String format = String.format("{\"code\":\"%s\",\"message\":\"%s\"}", 1, 1);
+        System.out.println(format);
+    }
+
 
     @Test
     public void testObjects() {

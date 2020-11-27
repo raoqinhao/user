@@ -1,7 +1,6 @@
 package com.hh.userservice.util;
 
 import com.hh.userservice.inter.Person;
-import com.mysql.cj.conf.RuntimeProperty;
 import org.springframework.stereotype.Component;
 
 @Component
