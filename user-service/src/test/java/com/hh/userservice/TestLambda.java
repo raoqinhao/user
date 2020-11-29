@@ -56,6 +56,18 @@ public class TestLambda {
     }
 
 
+    @Test
+    public void testPeekAnyMatchData() {
+        List<User> userList = getUserList();
+        List<String> names = new ArrayList<>();
+        // 通过peek获取数据的时候如果后面接了anyMatch()方法的时候需要注意了，当匹配成功的时候后面peek中的数据会被丢失了。
+        // 所以需要切记peek中放数据的时候需要直接放即可。
+        boolean b = userList.stream().peek(user -> names.add(user.getUserName())).anyMatch(e -> "wangwu".equals(e.getUserName()));
+        System.out.println(b);
+        System.out.println("---------");
+        names.forEach(e -> System.out.println(e));
+    }
+
 
     @Test
     public void testMathRandom() {
