@@ -56,6 +56,13 @@ public class TestLambda {
     }
 
 
+    @Test
+    public void testMatchPeek() {
+        List<User> userList = getUserList();
+        boolean b = userList.stream().peek(e -> System.out.println(e)).anyMatch(e -> "lisi".equals(e.getUserName()));
+        System.out.println(b);
+    }
+
 
     @Test
     public void testMathRandom() {
