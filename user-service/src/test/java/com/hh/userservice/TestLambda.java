@@ -57,6 +57,11 @@ public class TestLambda {
 
 
     @Test
+    public void testStash() {
+
+    }
+
+    @Test
     public void testPeekAnyMatchData() {
         List<User> userList = getUserList();
         List<String> names = new ArrayList<>();
