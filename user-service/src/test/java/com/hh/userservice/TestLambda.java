@@ -58,7 +58,7 @@ public class TestLambda {
 
     @Test
     public void testStash() {
-
+        System.out.println("111");
     }
 
     @Test
