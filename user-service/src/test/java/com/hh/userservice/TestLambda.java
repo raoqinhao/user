@@ -60,6 +60,7 @@ public class TestLambda {
     public void testStash() {
         System.out.println("111");
         System.out.println("dev2");
+        System.out.println("dev1");
     }
 
     @Test
