@@ -59,6 +59,7 @@ public class TestLambda {
     @Test
     public void testStash() {
 
+        System.out.println("dev1");
     }
 
     @Test
