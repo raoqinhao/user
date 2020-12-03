@@ -67,6 +67,7 @@ public class TestLambda {
         System.out.println("dev22");
         System.out.println("new dev1");
         System.out.println("new dev2");
+        System.out.println("new dev11");
     }
 
     @Test
