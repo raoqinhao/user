@@ -71,6 +71,7 @@ public class TestLambda {
         System.out.println("new dev111");
         System.out.println("new dev1111");
         System.out.println("cs");
+        System.out.println("dev1 测试 reword");
     }
 
     @Test
