@@ -58,20 +58,7 @@ public class TestLambda {
 
     @Test
     public void testStash() {
-        System.out.println("111");
-        System.out.println("dev2");
-        System.out.println("dev1");
-        System.out.println("master");
-        System.out.println("master.");
-        System.out.println("dev222");
-        System.out.println("dev22");
-        System.out.println("new dev1");
-        System.out.println("new dev2");
-        System.out.println("new dev11");
-        System.out.println("new dev111");
-        System.out.println("new dev1111");
-        System.out.println("cs");
-        System.out.println("dev1 测试 reword");
+
     }
 
     @Test
