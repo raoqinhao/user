@@ -34,7 +34,7 @@ public class TestLambda {
         userList.add(new User("wangwu",26));
         userList.add(new User("maliu",26));
         userList.add(new User("maliu",26));
-        return userList; 
+        return userList;
     }
 
     private static List<Role> getRoleList() {
