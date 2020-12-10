@@ -84,6 +84,7 @@ public class TestLambda {
 
     @Test
     public void testStash() {
+        System.out.println("master");
         System.out.println("dev1");
         System.out.println("dev11");
     }
