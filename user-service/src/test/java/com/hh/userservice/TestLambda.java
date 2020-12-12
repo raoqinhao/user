@@ -57,6 +57,40 @@ public class TestLambda {
 
 
     @Test
+    public void testStreamFilter() {
+        // 通过流过滤不需要的数据
+        List<User> userList = getUserList();
+        List<Object> objects = userList.stream().filter(e -> {
+            String showName = e.getUserName();
+            if ("lisi".equals(showName)) {
+                return false;
+            } else {
+                return true;
+            }
+        }).collect(Collectors.toCollection(ArrayList::new));
+        System.out.println(objects);
+    }
+
+    @Test
+    public void testPartitioning() {
+
+        List<User> userList = getUserList();
+        Map<Boolean, List<User>> collectPartitioning2 = userList.stream().collect(Collectors.partitioningBy(e -> e.getUserAge() > 20));
+        System.out.println(collectPartitioning2);
+        Map<Boolean, List<User>> collectPartitioning1 = userList.stream().collect(Collectors.partitioningBy(e -> e.getUserAge() > 20));
+        System.out.println(collectPartitioning1);
+    }
+
+
+    @Test
+    public void testStash() {
+        System.out.println("master");
+        System.out.println("dev1");
+        System.out.println("master1");
+        System.out.println("dev11");
+    }
+
+    @Test
     public void testPeekAnyMatchData() {
         List<User> userList = getUserList();
         List<String> names = new ArrayList<>();
@@ -66,6 +100,13 @@ public class TestLambda {
         System.out.println(b);
         System.out.println("---------");
         names.forEach(e -> System.out.println(e));
+    }
+
+    @Test
+    public void testMatchPeek() {
+        List<User> userList = getUserList();
+        boolean b = userList.stream().peek(e -> System.out.println(e)).anyMatch(e -> "lisi".equals(e.getUserName()));
+        System.out.println(b);
     }
 
 
