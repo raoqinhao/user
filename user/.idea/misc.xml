@@ -3,7 +3,10 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$" />
     <file type="web" url="file://$PROJECT_DIR$/../user-eureka" />
+    <file type="web" url="file://$PROJECT_DIR$/../user-eureka-slave-01" />
+    <file type="web" url="file://$PROJECT_DIR$/../user-eureka-slave-02" />
     <file type="web" url="file://$PROJECT_DIR$/../user-service" />
+    <file type="web" url="file://$PROJECT_DIR$/../user-service-consume" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -12,8 +15,21 @@
         <option value="$PROJECT_DIR$/user-service/pom.xml" />
         <option value="$PROJECT_DIR$/../user-service/pom.xml" />
         <option value="$PROJECT_DIR$/user-eureka/pom.xml" />
+        <option value="$PROJECT_DIR$/../user-service-provide01/pom.xml" />
         <option value="$PROJECT_DIR$/../user-eureka/pom.xml" />
+        <option value="$PROJECT_DIR$/user-service-api/pom.xml" />
+        <option value="$PROJECT_DIR$/../user-service-api/pom.xml" />
+        <option value="$PROJECT_DIR$/../user-service-provide02/pom.xml" />
+        <option value="$PROJECT_DIR$/../user-service-provide03/pom.xml" />
+        <option value="$PROJECT_DIR$/../user-eureka01/pom.xml" />
+        <option value="$PROJECT_DIR$/../user-eureka02/pom.xml" />
+        <option value="$PROJECT_DIR$/../user-service-consume/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/../user-eureka-slave-01/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
