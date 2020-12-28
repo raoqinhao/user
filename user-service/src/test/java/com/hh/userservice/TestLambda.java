@@ -55,6 +55,20 @@ public class TestLambda {
         return roleList;
     }
 
+    @Test
+    public void testStreamGroupBy() {
+        List<Role> roleList = getRoleList();
+        List<Permission> collect = roleList.parallelStream().flatMap(e -> e.getPermissions().stream()).collect(Collectors.toCollection(ArrayList::new));
+        System.out.println(collect);
+        System.out.println("----------");
+        collect.stream().forEach(permission -> {
+            String permissionId = permission.getPermissionId();
+            String permissionString = permission.getPermissionString();
+            System.out.println(permissionId + " " + permissionString);
+        });
+        Optional<Integer> reduce = collect.stream().map(e -> Integer.parseInt(e.getPermissionId())).reduce((x, y) -> x + y);
+        System.out.println(reduce.get());
+    }
 
     @Test
     public void testStreamFilter() {
