@@ -1,0 +1,25 @@
+server:
+  port: 5000
+
+spring:
+  application:
+    name: user-service-config
+  cloud:
+    config:
+      server:
+        git:
+          username: raoqinhao
+          password: rqh0226.
+      label: master
+
+
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+  client:
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://eureka:7000/eureka,http://eureka01:7001/eureka,http://eureka02:7002/eureka
+
