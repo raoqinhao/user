@@ -4,8 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.hh.userservice.inter.Person;
+import com.hh.userservice.inter.TestConsumer;
 import com.hh.userservice.pojo.Permission;
 import com.hh.userservice.pojo.Role;
+import io.lettuce.core.output.KeyStreamingChannel;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import org.junit.Test;
@@ -35,6 +37,16 @@ public class TestLambda {
         userList.add(new User("maliu",26));
         userList.add(new User("maliu",26));
         return userList;
+    }
+
+    private static List<MethodRef> getMethodRefList() {
+        List<MethodRef> methodRefList = new ArrayList<>();
+        methodRefList.add(new MethodRef(true,"zhangsan"));
+        methodRefList.add(new MethodRef(true,"lisi"));
+        methodRefList.add(new MethodRef(false,"wangwu"));
+        methodRefList.add(new MethodRef(true,"maliu"));
+        methodRefList.add(new MethodRef(false,"maliu"));
+        return methodRefList;
     }
 
     private static List<Role> getRoleList() {
@@ -68,6 +80,13 @@ public class TestLambda {
         });
         Optional<Integer> reduce = collect.stream().map(e -> Integer.parseInt(e.getPermissionId())).reduce((x, y) -> x + y);
         System.out.println(reduce.get());
+    }
+
+    @Test
+    public void testMethodRef() {
+        getUserList().stream().peek(User::getUserName);
+        List<MethodRef> collect = getMethodRefList().stream().filter(MethodRef::isStatus).collect(Collectors.toCollection(ArrayList::new));
+        collect.forEach(System.out::println);
     }
 
     @Test

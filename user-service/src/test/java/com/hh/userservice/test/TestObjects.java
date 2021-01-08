@@ -31,4 +31,11 @@ public class TestObjects {
         }
     }
 
+    @Test
+    public void testStringLength() {
+        String strLength = "91310120752458794E";
+        System.out.println(strLength.length());
+    }
+
+
 }
