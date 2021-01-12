@@ -15,9 +15,9 @@ import java.util.stream.Collectors;
 public class TestFixedThreadPool {
 
     public static void main(String[] args) {
-
+        ExecutorService executorService = null;
         try {
-            ExecutorService executorService = Executors.newFixedThreadPool(10);
+            executorService = Executors.newFixedThreadPool(10);
             List<User> userList = getUserList();
             int pageNum = userList.size() % 10 == 0 ? (userList.size() / 10) : (userList.size() / 10) + 1;
             CountDownLatch countDownLatch = new CountDownLatch(userList.size());
@@ -29,6 +29,9 @@ public class TestFixedThreadPool {
             countDownLatch.await();
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            if (executorService != null) 
+                executorService.shutdown();
         }
 
     }
