@@ -39,7 +39,7 @@ public class ZuulPathFilter extends ZuulFilter {
         String requestURL = request.getRequestURL().toString();
         log.info("方法名： {}，请求路径： {}", method, requestURL);
         String token = request.getHeader("token");
-        if (!StringUtils.isNotBlank(token)) {
+        if (StringUtils.isNotBlank(token)) {
             response.getWriter().write("请登录!!!");
         }
         return null;
