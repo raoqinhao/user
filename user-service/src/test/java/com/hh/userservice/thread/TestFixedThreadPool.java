@@ -22,7 +22,7 @@ public class TestFixedThreadPool {
             int pageNum = userList.size() % 10 == 0 ? (userList.size() / 10) : (userList.size() / 10) + 1;
             CountDownLatch countDownLatch = new CountDownLatch(userList.size());
             for (int i = 0; i < pageNum; i++) {
-                List<User> userData = userList.stream().skip(i * 10).limit(10).collect(Collectors.toCollection(ArrayList::new));
+                List<User> userData = userList.parallelStream().skip(i * 10).limit(10).collect(Collectors.toCollection(ArrayList::new));
                 MultiPartThread multiPartThread = new MultiPartThread(countDownLatch,userData);
                 executorService.execute(multiPartThread);
             }
@@ -30,7 +30,7 @@ public class TestFixedThreadPool {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if (executorService != null) 
+            if (executorService != null)
                 executorService.shutdown();
         }
 
