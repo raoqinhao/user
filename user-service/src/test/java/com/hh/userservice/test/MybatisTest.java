@@ -53,4 +53,23 @@ public class MybatisTest {
 
     }
 
+    @Test
+    public void rollbackMybatisUserData() throws Exception{
+        InputStream resourceAsStream = Resources.getResourceAsStream("mybatis.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+//        SqlSession sqlSession = sqlSessionFactory.openSession(ExecutorType.SIMPLE,true);  // 通过工厂创建SqlSession的同时自动提交事务。
+        SqlSession sqlSession = sqlSessionFactory.openSession(ExecutorType.SIMPLE);
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        UserBean bean = new UserBean(UUID.randomUUID().toString().replaceAll("-","")
+                ,"wangwu","123456","994036938@qq.com","17806525487",null);
+        mapper.insertUserBeanData(bean);
+        try {
+            int i = 1 / 0;
+            sqlSession.commit(true);  // 需要手动提交的时候需要传入一个参数，如果不传递参数的话能提交成功，但是不能保存数据到数据库里。
+        } catch (Exception e) {
+            e.printStackTrace();
+            sqlSession.rollback(true);
+        }
+
+    }
 }
