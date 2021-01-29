@@ -78,4 +78,30 @@ public class TestIO {
                 bufferedReader.close();
         }
     }
+
+    @Test
+    public void stream4() throws Exception{
+        BufferedInputStream bufferedInputStream = null;
+        BufferedOutputStream bufferedOutputStream = null;
+        try {
+            long start = System.currentTimeMillis();
+            bufferedInputStream = new BufferedInputStream(new FileInputStream("E:\\image\\测试.txt"));
+            bufferedOutputStream = new BufferedOutputStream(new FileOutputStream("E:\\image\\测试1.txt"));
+            byte[] bytes = new byte[1024];
+            while (bufferedInputStream.read(bytes) != -1) {
+                bufferedOutputStream.write(bytes);
+            }
+            long end = System.currentTimeMillis() - start;
+            System.out.println(end);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (!Objects.isNull(bufferedOutputStream))
+                bufferedOutputStream.flush();
+            if (!Objects.isNull(bufferedOutputStream))
+                bufferedOutputStream.close();
+            if (!Objects.isNull(bufferedInputStream))
+                bufferedInputStream.close();
+        }
+    }
 }
