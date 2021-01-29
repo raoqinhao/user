@@ -3,7 +3,6 @@ package com.hh.userservice.thread;
 import com.hh.userservice.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import sun.java2d.SurfaceDataProxy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +16,7 @@ public class TestFixedThreadPool {
     public static void main(String[] args) {
         ExecutorService executorService = null;
         try {
+            long start = System.currentTimeMillis();
             executorService = Executors.newFixedThreadPool(10);
             List<User> userList = getUserList();
             int pageNum = userList.size() % 10 == 0 ? (userList.size() / 10) : (userList.size() / 10) + 1;
@@ -27,6 +27,8 @@ public class TestFixedThreadPool {
                 executorService.execute(multiPartThread);
             }
             countDownLatch.await();
+            long result = System.currentTimeMillis() - start;
+            System.out.println("总耗时 ： " + result + "毫秒！！！");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
