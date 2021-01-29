@@ -2,9 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hh.userservice.mapper.UserMapper">
 
+    <resultMap id="mapper" type="com.hh.userservice.pojo.UserBean">
+    <id column="id" property="id"></id>
+    <result column="username" property="username" typeHandler="com.hh.userservice.handle.ExampleTypeHandle"></result>
+    <result column="password" property="password"></result>
+    <result column="email" property="email"></result>
+    <result column="telephone" property="telephone"></result>
+    </resultMap>
 
-  <select id="findUserBeanById" resultType="com.hh.userservice.pojo.UserBean">
-    select * from u_user where id = #{id}
-  </select>
+    <select id="findUserBeanById" resultMap="mapper">
+        select * from u_user where id = #{id}
+    </select>
 
+    <select id="findUserBeanByUserName" resultMap="mapper">
+        select * from u_user where username = #{username,typeHandler=com.hh.userservice.handle.ExampleTypeHandle}
+    </select>
+
+    <select id="insertUserBeanData">
+        insert into u_user(id,username,password,email,telephone) value(#{id},#{username,typeHandler=com.hh.userservice.handle.ExampleTypeHandle},#{password}
+        ,#{email},#{telephone})
+    </select>
 </mapper>

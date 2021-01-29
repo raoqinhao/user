@@ -11,6 +11,11 @@
         <!-- 批量扫描别名 -->
     </typeAliases>
 
+    <typeHandlers>
+<!--        <package name="com.hh.userservice.handle"/>-->
+        <typeHandler jdbcType="VARCHAR" javaType="java.lang.String" handler="com.hh.userservice.handle.ExampleTypeHandle"></typeHandler>
+    </typeHandlers>
+
     <!-- 由于使用spring和mybatis的整合包进行dataSource的设置整合，这里不需要配置了,可用于junit单元测试 -->
 
     <environments default="development">

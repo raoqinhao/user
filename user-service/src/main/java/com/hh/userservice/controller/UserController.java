@@ -254,4 +254,11 @@ public class UserController {
     }
 
 
+    @RequestMapping("findUserBeanById/{id}")
+    @ResponseBody
+    public String findUserBeanById(@PathVariable String id) {
+        UserBean userBean = userService.findUserBeanById(id);
+        return JSONObject.toJSONString(userBean);
+    }
+
 }
