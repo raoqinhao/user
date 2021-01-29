@@ -12,6 +12,7 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 import org.junit.Test;
 import org.springframework.core.convert.converter.Converter;
+import org.thymeleaf.util.StringUtils;
 
 import java.util.*;
 import java.util.function.Function;
@@ -67,6 +68,14 @@ public class TestLambda {
         return roleList;
     }
 
+
+    @Test
+    public void testSkipLimit() {
+        List<User> userList = getUserList();
+        List<User> collect = userList.stream().skip(2).limit(2).collect(Collectors.toList());
+        System.out.println(collect);
+    }
+
     @Test
     public void testStreamGroupBy() {
         List<Role> roleList = getRoleList();
@@ -102,6 +111,20 @@ public class TestLambda {
             }
         }).collect(Collectors.toCollection(ArrayList::new));
         System.out.println(objects);
+    }
+
+    @Test
+    public void testPartitioning2() {
+        List<User> userList = getUserList();
+        Map<Boolean, List<User>> collectPartitioning1 = userList.stream().collect(Collectors.partitioningBy(e -> e.getUserAge() > 20));
+        collectPartitioning1.forEach((key,value) -> {
+            if (StringUtils.equalsIgnoreCase("true",key)) {
+                System.out.println(value);
+            }
+            if (StringUtils.equalsIgnoreCase("false",key)) {
+                System.out.println(value);
+            }
+        });
     }
 
     @Test
