@@ -1,9 +1,11 @@
 package com.hh.userservice.controller;
 
+import com.alibaba.excel.EasyExcel;
 import com.alibaba.fastjson.JSONObject;
 import com.hh.userservice.annotation.UserStatus;
 import com.hh.userservice.config.SpringApplicationUtils;
 import com.hh.userservice.config.UserEnum;
+import com.hh.userservice.pojo.Excel;
 import com.hh.userservice.pojo.UserBean;
 import com.hh.userservice.service.UserService;
 //import com.hh.userservice.strategy.Strategy;
@@ -22,6 +24,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.imageio.ImageIO;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,12 +32,15 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.AnnotatedType;
 import java.lang.reflect.Field;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("user")
@@ -251,6 +257,36 @@ public class UserController {
     public String findUserById(@PathVariable String id) {
         List<com.hh.userservice.model.UserBean> userBean = userService.findUserById(id);
         return JSONObject.toJSONString(userBean);
+    }
+
+
+    @RequestMapping(value = "exportUserBeanData", method = RequestMethod.GET)
+    public void exportUserBeanData(HttpServletRequest request, HttpServletResponse response) {
+//        String fileName = "测试EasyExcel文件输出数据.xlsx";
+        String fileName = null;
+        try {
+            fileName = new String("测试EasyExcel文件输出数据.xlsx".getBytes(), "ISO-8859-1");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        List<Excel> data = getExcelData();
+        response.addHeader("Content-Disposition", "filename=" + fileName);
+        ServletOutputStream outputStream = null;
+        try {
+            outputStream = response.getOutputStream();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+//        EasyExcel.write(fileName, Excel.class).sheet("DATA").doWrite(data);
+        EasyExcel.write(outputStream, Excel.class).sheet("Test").doWrite(data);
+    }
+
+    private static List<Excel> getExcelData() {
+        List<Excel> list = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            list.add(new Excel(UUID.randomUUID().toString().replaceAll("-",""),"name"+i,"0","13006257601"));
+        }
+        return list;
     }
 
 

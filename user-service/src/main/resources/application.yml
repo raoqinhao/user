@@ -4,8 +4,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
-    password: qwer
-    url: jdbc:mysql://101.200.204.106:3306/demo
+    password: 123456
+    url: jdbc:mysql://101.200.204.106:3306/user
   thymeleaf:
     mode: HTML5
     encoding: UTF-8
