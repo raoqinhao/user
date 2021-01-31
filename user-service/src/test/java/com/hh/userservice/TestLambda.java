@@ -68,6 +68,22 @@ public class TestLambda {
         return roleList;
     }
 
+    @Test
+    public void testRetainAll() {
+        List<String> arrayList1 = new ArrayList<>();
+        arrayList1.add("1");
+        arrayList1.add("2");
+        arrayList1.add("3");
+        List<String> arrayList2 = new ArrayList<>();
+        arrayList2.add("2");
+        arrayList2.add("3");
+        boolean all = arrayList1.retainAll(arrayList2);
+        System.out.println(all);
+        List<String> stringArrayList = arrayList1.stream().filter(arrayList2::contains).collect(Collectors.toCollection(ArrayList::new));
+        stringArrayList.forEach(System.out::println);
+        List<String> collect = Stream.of(arrayList1, arrayList2).flatMap(Collection::stream).distinct().collect(Collectors.toCollection(ArrayList::new));
+        collect.forEach(System.out::println);
+    }
 
     @Test
     public void testSkipLimit() {
