@@ -1,6 +1,7 @@
 package com.hh.userservice.service.impl;
 
 import com.hh.userservice.mapper.UserBeanMapper;
+import com.hh.userservice.mapper.UserMapper;
 import com.hh.userservice.model.UserBeanExample;
 import com.hh.userservice.pojo.UserBean;
 import com.hh.userservice.service.UserService;
@@ -15,6 +16,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserBeanMapper userBeanMapper;
+
+    @Autowired
+    private UserMapper userMapper;
 
     @Override
     public List<UserBean> findAllUserBean() {
@@ -42,5 +46,10 @@ public class UserServiceImpl implements UserService {
         com.hh.userservice.model.UserBean userBean = userBeanMapper.selectByPrimaryKey(id);
         List<com.hh.userservice.model.UserBean> userBeans = userBeanMapper.selectByExample(userBeanExample);
         return userBeans;
+    }
+
+    @Override
+    public UserBean findUserBeanById(String id) {
+        return userMapper.findUserBeanById(id);
     }
 }
