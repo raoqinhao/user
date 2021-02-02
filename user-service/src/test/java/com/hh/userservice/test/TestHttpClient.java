@@ -8,7 +8,9 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.junit.Test;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
+import sun.nio.cs.ext.MacArabic;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -21,6 +23,7 @@ import java.util.Map;
 public class TestHttpClient {
 
     private static String requestPath = "http://localhost:9001/findUserInfo/1";
+    private static String requestPathPost = "http://localhost/post/consume";
 
     @Test
     public void useHttpClient() {
@@ -68,6 +71,16 @@ public class TestHttpClient {
         Object username = map.get("username");
         System.out.println(id);
         System.out.println(username);
+        System.out.println("------------");
+        JSONObject json = new JSONObject();
+        json.put("id",1);
+        ResponseEntity<Map> mapResponseEntity = restTemplate.postForEntity(requestPathPost, json, Map.class);
+        Map body = mapResponseEntity.getBody();
+        System.out.println(body);
+        Object id1 = body.get("id");
+        Object username2 = body.get("username");
+        System.out.println(id1);
+        System.out.println(username2);
     }
 
 
