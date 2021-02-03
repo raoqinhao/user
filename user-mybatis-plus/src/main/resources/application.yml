@@ -1,0 +1,20 @@
+server:
+  port: 8087
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://127.0.0.1:3306/user
+
+mybatis-plus:
+  global-config:
+    id-type: 1
+    db-column-underline: true
+    db-type: MYSQL
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: true
+  type-aliases-package: com.hh.userservice.pojo
+  mapper-locations: classpath:mappers/*.xml
