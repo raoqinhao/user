@@ -1,0 +1,13 @@
+server:
+  port: 7677
+
+spring:
+  application:
+    name: nacos-service-provider
+  cloud:
+    discovery:
+      enabled: true
+    nacos:
+      discovery:
+        server-addr: http://localhost:8848,http://localhost:8849,http://localhost:8850
+        register-enabled: true
