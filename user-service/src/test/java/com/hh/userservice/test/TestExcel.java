@@ -1,9 +1,9 @@
 package com.hh.userservice.test;
 
 import com.alibaba.excel.EasyExcel;
-import com.alibaba.excel.write.builder.ExcelWriterSheetBuilder;
 import com.alibaba.excel.write.metadata.WriteSheet;
 import com.hh.userservice.handle.CostomWriteHandler;
+import com.hh.userservice.pojo.Excel;
 import org.junit.Test;
 
 import java.util.ArrayList;
