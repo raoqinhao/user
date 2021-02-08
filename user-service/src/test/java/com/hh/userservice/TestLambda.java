@@ -69,6 +69,28 @@ public class TestLambda {
     }
 
     @Test
+    public void testRetainAllMethod() {
+        List<String> arrayList1 = new ArrayList<>();
+        arrayList1.add("1");
+        arrayList1.add("2");
+        arrayList1.add("3");
+        List<String> arrayList2 = new ArrayList<>();
+        arrayList2.add("4");
+        arrayList2.add("5");
+        System.out.println(arrayList1);
+        System.out.println(arrayList2);
+        System.out.println("-----");
+        List<String> arrayListData = new ArrayList<>();
+        boolean b = arrayList1.retainAll(arrayList2);
+        boolean b1 = arrayList2.retainAll(arrayList1);
+        System.out.println(b);
+        System.out.println(b1);
+        System.out.println(arrayList1);
+        System.out.println(arrayList2);
+    }
+
+
+    @Test
     public void testRetainAll() {
         List<String> arrayList1 = new ArrayList<>();
         arrayList1.add("1");
@@ -83,6 +105,13 @@ public class TestLambda {
         stringArrayList.forEach(System.out::println);
         List<String> collect = Stream.of(arrayList1, arrayList2).flatMap(Collection::stream).distinct().collect(Collectors.toCollection(ArrayList::new));
         collect.forEach(System.out::println);
+        System.out.println("--------");
+        List<String> arrayList = arrayList1.stream().filter(e -> !arrayList2.contains(e)).collect(Collectors.toCollection(ArrayList::new));
+        arrayList.forEach(System.out::println);
+        System.out.println("--------");
+        List<String> strings = arrayList2.stream().filter(e -> !arrayList1.contains(e)).collect(Collectors.toCollection(ArrayList::new));
+        strings.forEach(System.out::println);
+        User user = new User();
     }
 
     @Test
@@ -258,7 +287,7 @@ public class TestLambda {
         strings.add("2");
         strings.add("3");
         List<String> collect = strings.stream().map(e -> e + x).collect(Collectors.toCollection(ArrayList::new));
-        collect.forEach(e -> System.out.println(e));
+        collect.forEach(System.out::println);
     }
 
 
