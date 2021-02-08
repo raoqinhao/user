@@ -3,6 +3,7 @@ package com.hh.userservice;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.hh.userservice.inter.Person;
 import com.hh.userservice.inter.TestConsumer;
 import com.hh.userservice.pojo.Permission;
@@ -14,6 +15,7 @@ import org.junit.Test;
 import org.springframework.core.convert.converter.Converter;
 import org.thymeleaf.util.StringUtils;
 
+import javax.swing.*;
 import java.util.*;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -67,6 +69,53 @@ public class TestLambda {
         roleList.add(new Role("5","zhaoqi","123",permissions2));
         return roleList;
     }
+
+
+    @Test
+    public void testComparatorNullsFirstMethod() {
+        List<User> userList = getUserList();
+        List<User> userList1 = getUserList();
+//        userList.add(new User("zhaoqi",null));
+        userList.add(null);
+        List<User> collect = userList.parallelStream().sorted(Comparator.nullsFirst(Comparator.comparing(User::getUserAge))).collect(Collectors.toCollection(ArrayList::new));
+        collect.forEach(System.out::println);
+        System.out.println("--------------1");
+        List<User> collect1 = userList1.parallelStream().sorted(Comparator.comparing(User::getUserAge)).collect(Collectors.toCollection(ArrayList::new));
+        collect1.forEach(System.out::println);
+        System.out.println("--------------2");
+        List<User> collect2 = userList1.parallelStream().sorted(Comparator.comparing(User::getUserAge).reversed()).collect(Collectors.toCollection(ArrayList::new));
+        collect2.forEach(System.out::println);
+        System.out.println("--------------3");
+        List<User> collect3 = userList1.parallelStream().sorted(Comparator.comparing(User::getUserName).thenComparing(User::getUserAge)).collect(Collectors.toCollection(ArrayList::new));
+        collect3.forEach(System.out::println);
+
+    }
+
+
+    @Test
+    public void testToMap() {
+        List<User> userList = getUserList();
+        Map<String, User> collect = userList.stream().collect(Collectors.toMap(User::getUserName, Function.identity(),(oldData,newData) -> oldData));
+        collect.forEach((key,value) -> System.out.println(key + " - " + value));
+        int max = userList.stream().mapToInt(User::getUserAge).max().orElseGet(() -> 0);
+        System.out.println(max);
+    }
+
+    @Test
+    public void testListData() {
+        JSONArray tempDataArray = new JSONArray();
+        JSONArray jsonArray = JSONArray.parseArray("[{\"unitName\":\"上海蒙明仓储有限公司\",\"count\":3},{\"unitName\":\"上海蒙明仓储有限公司\",\"count\":4},{\"unitName\":\"上海食品有限公司\",\"count\":3}]");
+        jsonArray.stream().collect(Collectors.groupingBy(e -> {
+            JSONObject e1 = (JSONObject) e;
+            return e1.getString("unitName");
+        })).forEach((key,value) -> {
+            JSONObject json = (JSONObject) value.stream().max(Comparator.comparing(e -> ((JSONObject) e).getInteger("count"))).get();
+            tempDataArray.add(json);
+        });
+        System.out.println(tempDataArray);
+    }
+
+
 
     @Test
     public void testRetainAll() {
@@ -297,6 +346,11 @@ public class TestLambda {
     }
 
     public static void main(String[] args) {
+        JFrame frmIpa = new JFrame();
+        frmIpa.setTitle("ipa工具类");
+        frmIpa.setBounds(600, 300, 500, 400);
+        frmIpa.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         getStringLength();
     }
 
