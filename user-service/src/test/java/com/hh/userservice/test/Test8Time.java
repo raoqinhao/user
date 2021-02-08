@@ -3,12 +3,50 @@ package com.hh.userservice.test;
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.time.chrono.ChronoZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 public class Test8Time {
+
+
+    @Test
+    public void testChronoUnitAndLocalDateTime() {
+
+        String beforeString = "2020-02-07 13:52:49";
+        ZonedDateTime beforeDateTime = LocalDateTime.parse(beforeString, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")).atZone(ZoneId.of("Asia/Shanghai"));
+        System.out.println(beforeDateTime.toString());
+        String afterString = "2020-02-07 15:36:29";
+        ZonedDateTime afterDateTime = LocalDateTime.parse(afterString, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")).atZone(ZoneId.of("Asia/Shanghai"));
+        System.out.println(afterDateTime.toString());
+        long hours = ChronoUnit.HOURS.between(beforeDateTime, afterDateTime);
+        System.out.println(hours);
+        System.out.println("---------------");
+        ChronoZonedDateTime<?> from = ChronoZonedDateTime.from(beforeDateTime);
+        System.out.println(from);
+
+    }
+
+
+
+    @Test
+    public void testChronoUnitLocalDate(){
+        LocalDate now = LocalDate.now();
+        LocalDate afterNow = LocalDate.of(2021, 02, 07);
+        afterNow.plusDays(1);
+//        LocalDateTime now = LocalDateTime.of(2021, 02, 07, 11, 10, 5);
+//        LocalDateTime afterNow = LocalDateTime.of(2021, 02, 07, 13, 50, 55);
+        long dayLong = ChronoUnit.DAYS.between(now, afterNow);
+        System.out.println(dayLong);
+        long hoursLong = ChronoUnit.HOURS.between(now, afterNow);
+        System.out.println(hoursLong);
+    }
+
 
 
     @Test
