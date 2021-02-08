@@ -1,25 +1,3 @@
-server:
-  port: 10086
-
 spring:
-  application:
-    name: user-service-zuul
-
-
-eureka:
-  instance:
-    prefer-ip-address: true
-    ip-address: 127.0.0.1
-  client:
-    register-with-eureka: true
-    service-url:
-      defaultZone: http://eureka:7000/eureka,http://eureka01:7001/eureka,http://eureka02:7002/eureka
-
-zuul:
-  routes:
-    zuul-path:
-      path: /zuul-path/**
-      serviceId: USER-SERVICE-PROVIDE
-    zuul-ribbon-path:
-      path: /zuul-ribbon-path/**
-      serviceId: USER-SERVICE-CONSUME
+  profiles:
+    active: dev
