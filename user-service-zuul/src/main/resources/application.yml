@@ -4,6 +4,12 @@ server:
 spring:
   application:
     name: user-service-zuul
+  zipkin:
+    base-url: http://localhost:9411
+    enabled: true
+  sleuth:
+    sampler:
+      probability: 1
 
 
 eureka:
@@ -23,3 +29,9 @@ zuul:
     zuul-ribbon-path:
       path: /zuul-ribbon-path/**
       serviceId: USER-SERVICE-CONSUME
+    zuul-consume-path:
+      path: /zuul-consume-path/**
+      serviceId: USER-SERVICE-CONSUME
+    zuul-openfeign-path:
+      path: /zuul-openfeign-path/**
+      serviceId: OPENFEIGN-SERVER
