@@ -3,10 +3,7 @@ package com.hh.userservice.test;
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
+import java.time.*;
 import java.time.chrono.ChronoZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
@@ -14,6 +11,19 @@ import java.util.Date;
 
 public class Test8Time {
 
+
+    @Test
+    public void testDur() {
+        LocalDateTime beforeNow = LocalDateTime.of(2021,2,8,8,30,0);
+        LocalDateTime afterNow = LocalDateTime.of(2021,2,8,10,0,0);
+        Duration duration1 = Duration.between(beforeNow, afterNow);
+        Duration duration2 = Duration.ofDays(2);
+        System.out.println(duration2.compareTo(duration1));
+        Duration duration3 = Duration.ofHours(10);
+        System.out.println(duration3);
+        long between = ChronoUnit.HOURS.between(beforeNow, afterNow);
+        System.out.println(between);
+    }
 
     @Test
     public void testChronoUnitAndLocalDateTime() {
