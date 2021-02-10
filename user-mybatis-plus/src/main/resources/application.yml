@@ -3,10 +3,10 @@ server:
 
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    username: root
-    password: 123456
-    url: jdbc:mysql://127.0.0.1:3306/user
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: hacker
+    password: Rqh17879303721
+    url: jdbc:mysql://raoqinhao.mysql.rds.aliyuncs.com:3306/user?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
 
 mybatis-plus:
   global-config:

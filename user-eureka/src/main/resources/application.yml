@@ -1,13 +1,3 @@
-server:
-  port: 7000
 spring:
-  application:
-    name: user-eureka
-eureka:
-  instance:
-    hostname: eureka
-    prefer-ip-address: true
-  client:
-    register-with-eureka: false
-    fetch-registry: false
-    service-url.defaultZone: http://eureka:7000/eureka,http://eureka01:7001/eureka,http://eureka02:7002/eureka
+  profiles:
+    active: dev
