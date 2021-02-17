@@ -5,8 +5,13 @@
     <file type="web" url="file://$PROJECT_DIR$/../user-eureka" />
     <file type="web" url="file://$PROJECT_DIR$/../user-eureka-slave-01" />
     <file type="web" url="file://$PROJECT_DIR$/../user-eureka-slave-02" />
+    <file type="web" url="file://$PROJECT_DIR$/../user-mybatis-plus" />
     <file type="web" url="file://$PROJECT_DIR$/../user-service" />
     <file type="web" url="file://$PROJECT_DIR$/../user-service-consume" />
+    <file type="web" url="file://$PROJECT_DIR$/../user-service-feign-consume" />
+    <file type="web" url="file://$PROJECT_DIR$/../user-service-nacos-provide01" />
+    <file type="web" url="file://$PROJECT_DIR$/../user-service-nacos-provide02" />
+    <file type="web" url="file://$PROJECT_DIR$/../user-service-ribbon-hystrix-consume" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -24,6 +29,13 @@
         <option value="$PROJECT_DIR$/../user-eureka01/pom.xml" />
         <option value="$PROJECT_DIR$/../user-eureka02/pom.xml" />
         <option value="$PROJECT_DIR$/../user-service-consume/pom.xml" />
+        <option value="$PROJECT_DIR$/../user-service-config/pom.xml" />
+        <option value="$PROJECT_DIR$/../user-service-ribbon-hystrix-consume/pom.xml" />
+        <option value="$PROJECT_DIR$/../user-service-zuul/pom.xml" />
+        <option value="$PROJECT_DIR$/../user-service-nacos-provide01/pom.xml" />
+        <option value="$PROJECT_DIR$/../user-service-nacos-provide02/pom.xml" />
+        <option value="$PROJECT_DIR$/../user-service-feign-consume/pom.xml" />
+        <option value="$PROJECT_DIR$/../user-mybatis-plus/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
