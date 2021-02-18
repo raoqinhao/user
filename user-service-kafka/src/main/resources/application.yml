@@ -1,0 +1,9 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: user-service-kafka
+  kafka:
+    bootstrap-servers: 127.0.0.1:9092
+    
