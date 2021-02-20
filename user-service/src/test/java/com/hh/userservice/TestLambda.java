@@ -9,7 +9,6 @@ import com.hh.userservice.pojo.Role;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import org.junit.Test;
-import org.springframework.core.convert.converter.Converter;
 import org.thymeleaf.util.StringUtils;
 
 import javax.swing.*;
@@ -485,25 +484,6 @@ public class TestLambda {
         List<Role> collect = roleList.stream().collect(Collectors.toCollection(() -> roleList1));
         collect.forEach(e -> System.out.println(e));
         System.out.println(collect);
-    }
-
-
-
-
-    static int outerStaticNum;
-    int outerNum;
-
-    @Test
-    public void testStaticNum() {
-        Converter<Integer, String> stringConverter1 = (from) -> {
-            outerNum = 23;
-            return String.valueOf(from);
-        };
-        System.out.println(stringConverter1.convert(1));
-        Converter<Integer, String> stringConverter2 = (from) -> {
-            outerStaticNum = 72;
-            return String.valueOf(from);
-        };
     }
 
 

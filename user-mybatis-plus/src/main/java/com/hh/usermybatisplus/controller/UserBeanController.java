@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 public class UserBeanController {
@@ -41,6 +42,24 @@ public class UserBeanController {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @RequestMapping(value = "/mybatisplus/saveUserBean",method = RequestMethod.POST)
+    @ResponseBody
+    public String saveUserBeanByMybatisPlus(@RequestBody UserBean userBean) {
+        try {
+//            UserBean userBean = new UserBean(UUID.randomUUID().toString().replaceAll("-", ""),
+//                    "zhangsan", "123456", "64872154@qq.com", "13006257601");
+            int status = userBeanService.saveUserBean(userBean);
+            if (status > 0) {
+                return "success";
+            } else {
+                return "fail";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "fail";
+        }
     }
 
 }

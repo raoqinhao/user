@@ -27,4 +27,9 @@ public class UserBeanServiceImpl implements UserBeanService {
         queryWrapper.likeRight("username",username);
         return userBeanMapper.selectList(queryWrapper);
     }
+
+    @Override
+    public int saveUserBean(UserBean userBean) {
+        return userBeanMapper.insert(userBean);
+    }
 }

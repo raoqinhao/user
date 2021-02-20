@@ -8,5 +8,7 @@ public interface UserBeanService {
     UserBean findUserBean(String id);
 
     List<UserBean> findUserBeanByName(String username);
+
+    int saveUserBean(UserBean userBean);
 }
 
