@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <classPathEntry location="D:\maven repository\mysql\mysql-connector-java\5.1.41\mysql-connector-java-5.1.41.jar" />
+    <context id="msqlTables" targetRuntime="MyBatis3">
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+        <jdbcConnection connectionURL="jdbc:mysql://raoqinhao.mysql.rds.aliyuncs.com:3306/user"
+                        driverClass="com.mysql.cj.jdbc.Driver" password="Rqh17879303721" userId="hacker" >
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+        <javaModelGenerator targetPackage="com.hh.userserviceprovide01.model" targetProject="E:\project\user\user-service-provide01\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+            <!-- 从数据库返回的值被清理前后的空格  -->
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+        <sqlMapGenerator targetPackage="mappers" targetProject="E:\project\user\user-service-provide01\src\main\resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.hh.userserviceprovide01.mapper" targetProject="E:\project\user\user-service-provide01\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <!--数据库表-->
+        <table schema="" domainObjectName="UserBean" tableName="u_user"></table>
+    </context>
+</generatorConfiguration>

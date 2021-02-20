@@ -10,6 +10,17 @@ spring:
   sleuth:
     sampler:
       probability: 1
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: hacker
+    password: Rqh17879303721
+    url: jdbc:mysql://raoqinhao.mysql.rds.aliyuncs.com:3306/user?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
+
+mybatis:
+  typeAliasesPackage: com.hh.userserviceprovide02.pojo
+  mapper-locations: mappers/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
 
 eureka:
   instance:
