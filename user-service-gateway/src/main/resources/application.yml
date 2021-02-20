@@ -1,0 +1,28 @@
+server:
+  port: 7070
+
+spring:
+  application:
+    name: user-service-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: way
+          uri: lb://user-service-provide
+          #          uri: http://localhost:9002
+          predicates:
+            - Path=/** # 请求路径匹配所有的路径，和zuul网关的路径过滤不同（切记）
+#            - Path=/findUserInfo      后面放接口路径，切记不能自定义路径然后进行匹配。和zuul不同，zuul可以自定义匹配
+#            - Method=GET
+
+
+
+eureka:
+  client:
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://eureka:7000/eureka,http://eureka01:7001/eureka,http://eureka02:7002/eureka
