@@ -3,9 +3,9 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    username: root
-    password: 123456
-    url: jdbc:mysql://127.0.0.1:3306/user
+    username: hacker
+    password: Rqh17879303721
+    url: jdbc:mysql://raoqinhao.mysql.rds.aliyuncs.com:3306/user
   thymeleaf:
     mode: HTML5
     encoding: UTF-8
