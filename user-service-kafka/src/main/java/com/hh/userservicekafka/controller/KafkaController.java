@@ -27,4 +27,18 @@ public class KafkaController {
         return "ok";
     }
 
+    @PostMapping("/partitionTopic")
+    @ResponseBody
+    public String sendMessagePartition(@RequestBody String message) {
+        kafkaTemplate.send("partitionTopic",1,"key", message);
+        return "ok";
+    }
+
+    @PostMapping("/partTopic")
+    @ResponseBody
+    public String sendMessagePartTopic(@RequestBody String message) {
+        // 通过发送不同的数据到不同的分区中。
+        kafkaTemplate.send("partTopic",1,"key", message);
+        return "ok";
+    }
 }
