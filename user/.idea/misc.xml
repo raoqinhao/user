@@ -11,6 +11,8 @@
     <file type="web" url="file://$PROJECT_DIR$/../user-service-feign-consume" />
     <file type="web" url="file://$PROJECT_DIR$/../user-service-nacos-provide01" />
     <file type="web" url="file://$PROJECT_DIR$/../user-service-nacos-provide02" />
+    <file type="web" url="file://$PROJECT_DIR$/../user-service-oauth2" />
+    <file type="web" url="file://$PROJECT_DIR$/../user-service-oauth2-consume" />
     <file type="web" url="file://$PROJECT_DIR$/../user-service-ribbon-hystrix-consume" />
   </component>
   <component name="MavenProjectsManager">
@@ -36,6 +38,9 @@
         <option value="$PROJECT_DIR$/../user-service-nacos-provide02/pom.xml" />
         <option value="$PROJECT_DIR$/../user-service-feign-consume/pom.xml" />
         <option value="$PROJECT_DIR$/../user-mybatis-plus/pom.xml" />
+        <option value="$PROJECT_DIR$/../user-service-oauth2/pom.xml" />
+        <option value="$PROJECT_DIR$/../user-service-oauth2-consume/pom.xml" />
+        <option value="$PROJECT_DIR$/../user-service-cloud-stream/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

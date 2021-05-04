@@ -11,11 +11,14 @@
     <file url="file://$PROJECT_DIR$/../user-mybatis-plus" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-service-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../user-service-cloud-stream" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-service-config" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-service-consume" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-service-feign-consume" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-service-nacos-provide01" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-service-nacos-provide02" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../user-service-oauth2" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../user-service-oauth2-consume" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-service-provide01" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-service-provide02" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-service-provide03" charset="UTF-8" />
