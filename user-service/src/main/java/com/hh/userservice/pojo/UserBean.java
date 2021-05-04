@@ -25,5 +25,5 @@ public class UserBean implements Serializable {
     private String password;
     private String email;
     private String telephone;
-    private Set<Role> roles;
+//    private Set<Role> roles;
 }

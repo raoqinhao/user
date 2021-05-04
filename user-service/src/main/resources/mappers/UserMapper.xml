@@ -3,11 +3,15 @@
 <mapper namespace="com.hh.userservice.mapper.UserMapper">
 
     <resultMap id="mapper" type="com.hh.userservice.pojo.UserBean">
-    <id column="id" property="id"></id>
-    <result column="username" property="username" typeHandler="com.hh.userservice.handle.ExampleTypeHandle"></result>
-    <result column="password" property="password"></result>
-    <result column="email" property="email"></result>
-    <result column="telephone" property="telephone"></result>
+        <id column="id" property="id"></id>
+        <result column="username" property="username" typeHandler="com.hh.userservice.handle.ExampleTypeHandle"></result>
+        <result column="password" property="password"></result>
+        <result column="email" property="email"></result>
+        <result column="telephone" property="telephone"></result>
+<!--        <collection property="roles" ofType="com.hh.userservice.pojo.Role" autoMapping="true">-->
+<!--            <result column="id" property="roleId"></result>-->
+<!--            <result column="role_name" property="name"></result>-->
+<!--        </collection>-->
     </resultMap>
 
     <select id="findUserBeanById" resultMap="mapper">
@@ -15,11 +19,19 @@
     </select>
 
     <select id="findUserBeanByUserName" resultMap="mapper">
-        select * from u_user where username = #{username,typeHandler=com.hh.userservice.handle.ExampleTypeHandle}
+        select u.*,r.* from u_user u left join role r on u.id = r.id where username = #{username,typeHandler=com.hh.userservice.handle.ExampleTypeHandle}
     </select>
 
     <select id="insertUserBeanData">
         insert into u_user(id,username,password,email,telephone) value(#{id},#{username,typeHandler=com.hh.userservice.handle.ExampleTypeHandle},#{password}
         ,#{email},#{telephone})
+    </select>
+
+    <select id="insertUserData" parameterType="java.util.List">
+        insert into user(id,username,password,role_id) values
+        <foreach collection="userList" item="user" separator=",">
+            (#{user.id},#{user.username},#{user.password},#{user.roleId})
+        </foreach>
+
     </select>
 </mapper>

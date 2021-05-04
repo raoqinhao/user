@@ -2,7 +2,7 @@ server:
   port: 8086
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     username: hacker
     password: Rqh17879303721
     url: jdbc:mysql://raoqinhao.mysql.rds.aliyuncs.com:3306/user
@@ -18,5 +18,9 @@ spring:
         content:
           enabled: true
           paths: /**
+  redis:
+    host: 192.168.231.128
+    port: 6379
+    database: 0
 mybatis:
   mapper-locations: mappers/*.xml

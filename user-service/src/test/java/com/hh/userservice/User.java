@@ -1,5 +1,6 @@
 package com.hh.userservice;
 
+import com.hh.userservice.annotation.VerifyFieldStatus;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -7,7 +8,9 @@ import java.io.Serializable;
 @Data
 public class User implements Serializable,Cloneable {
 
+    @VerifyFieldStatus("1")
     private String userName;
+    @VerifyFieldStatus
     private Integer userAge;
 
     public User(String userName, Integer userAge) {
