@@ -22,4 +22,8 @@
         insert into u_user(id,username,password,email,telephone) value(#{id},#{username,typeHandler=com.hh.userservice.handle.ExampleTypeHandle},#{password}
         ,#{email},#{telephone})
     </select>
+
+    <select id="findAllUserBean" resultMap="mapper">
+        select * from u_user
+    </select>
 </mapper>

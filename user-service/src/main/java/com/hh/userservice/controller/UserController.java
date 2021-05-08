@@ -1,6 +1,7 @@
 package com.hh.userservice.controller;
 
 import com.alibaba.excel.EasyExcel;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.hh.userservice.annotation.UserStatus;
 import com.hh.userservice.config.SpringApplicationUtils;
@@ -39,6 +40,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
+import java.util.concurrent.Executors;
 
 @Controller
 @RequestMapping("user")
@@ -287,5 +289,22 @@ public class UserController {
         return list;
     }
 
+
+    @GetMapping("/user/data")
+    @ResponseBody
+    public String getUserData() {
+        JSONObject jsonObject = new JSONObject();
+        JSONArray jsonArray = new JSONArray();
+        JSONObject jsonObject1 = new JSONObject();
+        jsonObject1.put("username","zhangsan");
+        jsonObject1.put("password","123");
+        JSONObject jsonObject2 = new JSONObject();
+        jsonObject2.put("username","lisi");
+        jsonObject2.put("password","123456");
+        jsonArray.add(jsonObject1);
+        jsonArray.add(jsonObject2);
+        jsonObject.put("data",jsonArray);
+        return jsonObject.toJSONString();
+    }
 
 }

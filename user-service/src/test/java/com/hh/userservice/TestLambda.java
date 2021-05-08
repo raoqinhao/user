@@ -66,6 +66,15 @@ public class TestLambda {
         return roleList;
     }
 
+    @Test
+    public void testFinalNum() {
+        int num = 0;
+        Supplier supplier = () -> {
+            System.out.println(num);
+            return num;
+        };
+        System.out.println(supplier.get());
+    }
 
     @Test
     public void testComparatorNullsFirstMethod() {
