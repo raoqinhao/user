@@ -10,10 +10,14 @@
     <file url="file://$PROJECT_DIR$/../user-eureka02" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-mybatis-plus" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../user-service-activiti" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-service-api" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-service-config" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-service-consume" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-service-feign-consume" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../user-service-gateway" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../user-service-jimureport" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../user-service-kafka" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-service-nacos-provide01" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-service-nacos-provide02" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-service-provide01" charset="UTF-8" />

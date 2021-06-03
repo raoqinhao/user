@@ -8,10 +8,14 @@
       <module fileurl="file://$PROJECT_DIR$/../user-eureka02/user-eureka02.iml" filepath="$PROJECT_DIR$/../user-eureka02/user-eureka02.iml" />
       <module fileurl="file://$PROJECT_DIR$/../user-mybatis-plus/user-mybatis-plus.iml" filepath="$PROJECT_DIR$/../user-mybatis-plus/user-mybatis-plus.iml" />
       <module fileurl="file://$PROJECT_DIR$/../user-service/user-service.iml" filepath="$PROJECT_DIR$/../user-service/user-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../user-service-activiti/user-service-activiti.iml" filepath="$PROJECT_DIR$/../user-service-activiti/user-service-activiti.iml" />
       <module fileurl="file://$PROJECT_DIR$/../user-service-api/user-service-api.iml" filepath="$PROJECT_DIR$/../user-service-api/user-service-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/../user-service-config/user-service-config.iml" filepath="$PROJECT_DIR$/../user-service-config/user-service-config.iml" />
       <module fileurl="file://$PROJECT_DIR$/../user-service-consume/user-service-consume.iml" filepath="$PROJECT_DIR$/../user-service-consume/user-service-consume.iml" />
       <module fileurl="file://$PROJECT_DIR$/../user-service-feign-consume/user-service-feign-consume.iml" filepath="$PROJECT_DIR$/../user-service-feign-consume/user-service-feign-consume.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../user-service-gateway/user-service-gateway.iml" filepath="$PROJECT_DIR$/../user-service-gateway/user-service-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../user-service-jimureport/user-service-jimureport.iml" filepath="$PROJECT_DIR$/../user-service-jimureport/user-service-jimureport.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../user-service-kafka/user-service-kafka.iml" filepath="$PROJECT_DIR$/../user-service-kafka/user-service-kafka.iml" />
       <module fileurl="file://$PROJECT_DIR$/../user-service-nacos-provide01/user-service-nacos-provide01.iml" filepath="$PROJECT_DIR$/../user-service-nacos-provide01/user-service-nacos-provide01.iml" />
       <module fileurl="file://$PROJECT_DIR$/../user-service-nacos-provide02/user-service-nacos-provide02.iml" filepath="$PROJECT_DIR$/../user-service-nacos-provide02/user-service-nacos-provide02.iml" />
       <module fileurl="file://$PROJECT_DIR$/../user-service-provide01/user-service-provide01.iml" filepath="$PROJECT_DIR$/../user-service-provide01/user-service-provide01.iml" />
