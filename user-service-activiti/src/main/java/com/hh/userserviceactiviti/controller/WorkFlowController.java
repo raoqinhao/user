@@ -9,13 +9,16 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.io.File;
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @ClassName WorkFlowController
@@ -31,9 +34,9 @@ public class WorkFlowController {
     @Qualifier("buildProcessEngine")
     private ProcessEngine processEngine;
 
-    @GetMapping("/activiti/start")
+    @GetMapping("/activiti/start/easy")
     @ResponseBody
-    public void activitiStartWorkFlow() {
+    public void activitiStartEasyWorkFlow() {
         Deployment easyWorkFlowDeployment = processEngine.getRepositoryService().createDeployment().name("简易请假流程")
                 .addClasspathResource("easyworkflow.bpmn")
                 .addClasspathResource("easyworkflow.png")
@@ -85,6 +88,45 @@ public class WorkFlowController {
             InputStream resourceAsStream = processEngine.getRepositoryService().getResourceAsStream(deploymentId, imageName);
             FileUtils.copyInputStreamToFile(resourceAsStream,file);
         }
+    }
+
+
+    /** ------------------------------------------------ */
+
+    // 流程定义
+    @GetMapping("/activiti/start")
+    @ResponseBody
+    public void activitiStartWorkFlow() {
+        Deployment easyWorkFlowDeployment = processEngine.getRepositoryService().createDeployment().name("简易请假流程")
+                .addClasspathResource("workflow.bpmn")
+                .addClasspathResource("workflow.png")
+                .deploy();
+        System.out.println("开启流程定义 流程主键：" + easyWorkFlowDeployment.getId() + "，流程名称：" + easyWorkFlowDeployment.getName());
+    }
+
+    // 创建流程实例
+    @GetMapping("/activiti/runtime/workflow")
+    @ResponseBody
+    public void activityRuntimeWorkFlow() {
+        ProcessInstance processInstance = processEngine.getRuntimeService().startProcessInstanceByKey("workflow");
+        System.out.println("开始流程实例：" + processInstance.getName() + ", 流程实例id：" + processInstance.getId() + ", 开始实例用户的ID：" + processInstance.getStartUserId());
+    }
+
+
+    @GetMapping("/activiti/execution/paramtask/{taskId}")
+    @ResponseBody
+    @Transactional(rollbackFor = Exception.class)
+    public String activitiExecutionParamTask(@PathVariable String taskId, String key, String value) {
+        try {
+            Map<String, Object> paramMap = new HashMap<>();
+            paramMap.put(key, value);
+            processEngine.getTaskService().setVariable(taskId,key,value);
+            processEngine.getTaskService().complete(taskId,paramMap);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "fail";
+        }
+        return "success";
     }
 
 }
