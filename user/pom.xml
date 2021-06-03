@@ -17,8 +17,6 @@
     <modules>
         <module>../user-eureka</module>
         <module>../user-service</module>
-        <module>../user-eureka-slave-01</module>
-        <module>../user-eureka-slave-02</module>
         <module>../user-service-provide01</module>
     </modules>
 
