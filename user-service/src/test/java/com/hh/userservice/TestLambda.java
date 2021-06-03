@@ -3,6 +3,8 @@ package com.hh.userservice;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.hh.userservice.inter.CustomSumConsumer;
+import com.hh.userservice.inter.CustomSumFunction;
 import com.hh.userservice.inter.Person;
 import com.hh.userservice.pojo.Permission;
 import com.hh.userservice.pojo.Role;
@@ -12,6 +14,7 @@ import org.junit.Test;
 import org.thymeleaf.util.StringUtils;
 
 import javax.swing.*;
+import java.math.BigDecimal;
 import java.util.*;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -19,6 +22,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+
 
 @Accessors(chain = true)
 @Data
@@ -64,6 +68,97 @@ public class TestLambda {
         roleList.add(new Role("3","wangwu","123456789",permissions2));
         roleList.add(new Role("5","zhaoqi","123",permissions2));
         return roleList;
+    }
+
+
+    public static void consumer(Integer a, Integer b, CustomSumConsumer<Integer> customSumConsumer){
+        customSumConsumer.consumerData(a,b);
+    }
+
+
+
+    @Test
+    public void testCustomSumConsumer() {
+        consumer(12,23,(a,b) -> System.out.println(a + "--" + b));
+
+
+    }
+
+
+    public static Integer calculatorToNum(Integer a, Integer b, CustomSumFunction<Integer,Integer> customSumFunction) {
+        return customSumFunction.sum(a,b);
+    }
+
+
+    public void sumToNum(Integer t1, Integer t2, CustomSumFunction<Integer,Integer> consumer) {
+//        return consumer.sum(t1,t2);
+        consumer.sum(t1,t2);
+    };
+
+    @Test
+    public void testFunctionalInterface() {
+        getUserList().stream().mapToInt(User::getUserAge);
+        List<User> collect = getUserList().stream().peek(e -> System.out.println(e.getUserAge())).collect(Collectors.toCollection(ArrayList::new));
+//        CustomSumFunction::sum;
+        getUserList().stream().mapToInt(User::getUserAge);
+        Integer sum = calculatorToNum(1, 2, Integer::sum);
+        System.out.println(sum);
+        System.out.println("-----------");
+        sumToNum(1,3,(e1,e2) -> {
+            System.out.println(e1+e2);
+            return e1+e2;
+        });
+        System.out.println("----------");
+        String type = "belongs_to_team".toUpperCase();
+        System.out.println(type);
+        System.out.println("----------");
+        BigDecimal bigDecimal = new BigDecimal(100.04);
+        System.out.println(bigDecimal.toString());
+
+    }
+
+
+    @Test
+    public void testFilterAge() {
+
+        List<User> userList = getUserList();
+        Map<Integer, Map<String, List<User>>> mapMap = userList.stream().collect(Collectors.groupingBy(User::getUserAge, Collectors.groupingBy(User::getUserName)));
+        mapMap.forEach((key,value) -> {
+            System.out.println(key + "" + value);
+        });
+
+        Map<Integer, Map<String, Map<Integer, List<User>>>> collect = userList.stream().collect(Collectors.groupingBy(User::getUserAge, Collectors.groupingBy(User::getUserName, Collectors.groupingBy(User::getUserAge))));
+        System.out.println("--------------");
+        Map<Boolean, Map<Boolean, List<User>>> collect1 = userList.stream().collect(Collectors.partitioningBy(e -> e.getUserAge() > 20, Collectors.partitioningBy(e -> e.getUserAge() > 30)));
+        collect1.forEach((key,value) -> {
+            System.out.println(key + " " + value);
+        });
+
+    }
+
+    @Test
+    public void testArrayToMap() {
+        List<Long> longs = new ArrayList<>();
+        longs.add(1L);
+        longs.add(2L);
+        longs.add(3L);
+        longs.add(3L);
+        longs.stream().collect(Collectors.toMap(e -> String.valueOf(e),e -> false,(e1,e2) -> e1));
+        Optional<Long> optionalMax = longs.stream().max(Comparator.comparingLong(Long::longValue));
+        System.out.println(optionalMax.get());
+
+        Map<Long, Boolean> map = longs.stream().collect(Collectors.toMap(Function.identity(), e -> false, (e1,e2) -> e1));
+        map.forEach((key,value) -> System.out.println(key + "," + value));
+    }
+
+    @Test
+    public void testRemoveList() {
+        Set<Long> longSet = new HashSet<>();
+        longSet.add(1L);
+        longSet.add(2L);
+        longSet.add(3L);
+        List<String> stringList = longSet.stream().map(String::valueOf).collect(Collectors.toCollection(ArrayList::new));
+        stringList.forEach(System.out::println);
     }
 
     @Test
