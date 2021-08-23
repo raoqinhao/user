@@ -8,6 +8,8 @@ import com.hh.userservice.inter.CustomSumFunction;
 import com.hh.userservice.inter.Person;
 import com.hh.userservice.pojo.Permission;
 import com.hh.userservice.pojo.Role;
+import com.hh.userservice.util.ConsumerUtil;
+import com.sun.org.apache.xml.internal.utils.Hashtree2Node;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import org.junit.Test;
@@ -70,6 +72,69 @@ public class TestLambda {
         return roleList;
     }
 
+    @Test
+    public void testInterface() {
+        int sum = ConsumerUtil.sum(2, 3, ((a, b) -> a * b));
+        System.out.println(sum);
+    }
+
+    @Test
+    public void testMath() {
+        int random = (int) (Math.random() * 10);
+        System.out.println(55 + random);
+    }
+
+    @Test
+    public void testHashMap() {
+        HashMap<String,Integer> map = new HashMap() {{
+            put("a", 1);
+            put("b", 2);
+        }};
+        map.forEach((key,value) -> System.out.println(key + " " + value));
+    }
+
+    @Test
+    public void testToMapCollection() {
+        List<User> userList = getUserList();
+        Map<String, User> collect = userList.stream().collect(Collectors.toMap(User::getUserName, Function.identity(), (e1, e2) -> e1));
+        System.out.println(collect);
+    }
+
+    @Test
+    public void testUserString() {
+        getUserList().stream().map(User::getUserName).filter(Objects::nonNull).findFirst().orElseGet(String::new);
+    }
+
+    @Test
+    public void testUserBeanToMap() {
+        List<Role> roleList = getRoleList();
+        Map<String, String> collect = roleList.stream().collect(Collectors.toMap(Role::getRoleId,
+                e -> e.getPermissions().stream().map(Permission::getPermissionString).collect(Collectors.joining(",")), (t1, t2) -> t1));
+        collect.forEach((key,value) -> System.out.println(key + " -> " + value));
+    }
+
+
+    @Test
+    public void testFindMethod() {
+        List<Integer> list1 = new ArrayList<>();
+        list1.add(1);
+        list1.add(2);
+        list1.add(4);
+        List<Integer> list2 = new ArrayList<>();
+        list2.add(2);
+        boolean b = list1.retainAll(list2);
+        System.out.println(b);
+        System.out.println(list1);
+        System.out.println("-----------");
+
+        List<User> userList = getUserList();
+        Optional<Integer> reduce = userList.stream().map(User::getUserAge).reduce((e1, e2) -> e1 + e2);
+        Integer integer = reduce.get();
+        System.out.println(integer);
+        System.out.println("-------");
+        Integer reduce1 = userList.stream().map(User::getUserAge).reduce(0, (e1, e2) -> e1 + e2);
+        System.out.println(reduce1);
+    }
 
     public static void consumer(Integer a, Integer b, CustomSumConsumer<Integer> customSumConsumer){
         customSumConsumer.consumerData(a,b);

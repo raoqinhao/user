@@ -1,0 +1,48 @@
+server:
+  port: 8067
+
+spring:
+  application:
+    name: user-service-provide
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: hacker
+    password: Rqh17879303721
+    url: jdbc:mysql://raoqinhao.mysql.rds.aliyuncs.com:3306/jimu?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
+
+minidao :
+  base-package: org.jeecg.modules.jmreport.desreport.dao*
+  db-type: mysql
+
+jeecg :
+  jmreport:
+#    mode: dev
+    is_verify_token: true
+#    verify_methods: remove,delete,save,add,update
+  # local|minio|alioss
+  uploadType: local
+  # local
+  path :
+    #文件路径
+    upload: /opt/upload
+  # alioss
+#  oss:
+#    endpoint: oss-cn-beijing.aliyuncs.com
+#    accessKey: ??
+#    secretKey: ??
+#    staticDomain: ??
+#    bucketName: ??
+  # minio
+#  minio:
+#    minio_url: http://minio.jeecg.com
+#    minio_name: ??
+#    minio_pass: ??
+#    bucketName: ??
+#输出sql日志
+logging:
+  level:
+    org.jeecg.modules.jmreport : debug
+
+
+mybatis:
+  mapper-locations: mappers/*.xml

@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="user-service-oauth2-consume:war">
+    <output-path>$PROJECT_DIR$/../user-service-oauth2-consume/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>user-service-oauth2-consume</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="user-service-oauth2-consume-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="user-service-oauth2-consume:war exploded" />
+    </root>
+  </artifact>
+</component>

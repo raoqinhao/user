@@ -1,16 +1,24 @@
 server:
-  port: 80
+  port: 7777
 
 spring:
   application:
     name: openfeign-server
   zipkin:
-    base-url: http://localhost:9411
+    base-url: http://192.168.10.55:9411
     enabled: true
   sleuth:
     sampler:
-      probability: 1
-
+      probability: 1.0
+#      percentage: 1.0
+feign:
+  hystrix:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 2000
+        readTimeout: 2000
 
 eureka:
   client:

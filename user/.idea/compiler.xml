@@ -8,24 +8,31 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="user-mybatis-plus" />
+        <module name="user-service-mongodb" />
+        <module name="user-service-xxl-job" />
         <module name="user-service-gateway" />
         <module name="user-service" />
         <module name="user-service-api" />
         <module name="user-service-config" />
-        <module name="user-service-jimureport" />
+        <module name="user-service-cloud-stream" />
         <module name="user-service-ribbon-hystrix-consume" />
+        <module name="user-service-jimureport" />
         <module name="user-service-provide03" />
         <module name="user-service-provide02" />
         <module name="user-service-provide01" />
         <module name="user-eureka01" />
         <module name="user-eureka02" />
+        <module name="user-service-oauth2" />
         <module name="user-service-zuul" />
         <module name="user-service-kafka" />
         <module name="user-service-nacos-provide02" />
         <module name="user-service-nacos-provide01" />
         <module name="user-service-feign-consume" />
+        <module name="user-service-sentinel" />
         <module name="user-eureka" />
         <module name="user-service-activiti" />
+        <module name="user-service-dynamic-datasource" />
+        <module name="user-service-rocketmq" />
         <module name="user-service-consume" />
       </profile>
     </annotationProcessing>
@@ -40,19 +47,26 @@
       <module name="user-service" target="1.8" />
       <module name="user-service-activiti" target="1.8" />
       <module name="user-service-api" target="1.8" />
+      <module name="user-service-cloud-stream" target="1.8" />
       <module name="user-service-config" target="1.8" />
       <module name="user-service-consume" target="1.8" />
+      <module name="user-service-dynamic-datasource" target="1.8" />
       <module name="user-service-feign-consume" target="1.8" />
       <module name="user-service-gateway" target="1.8" />
       <module name="user-service-jimureport" target="1.8" />
       <module name="user-service-kafka" target="1.8" />
+      <module name="user-service-mongodb" target="1.8" />
       <module name="user-service-nacos-provide01" target="1.8" />
       <module name="user-service-nacos-provide02" target="1.8" />
+      <module name="user-service-oauth2" target="1.8" />
       <module name="user-service-provide01" target="1.8" />
       <module name="user-service-provide02" target="1.8" />
       <module name="user-service-provide03" target="1.8" />
       <module name="user-service-ribbon-hystrix-consume" target="1.8" />
+      <module name="user-service-rocketmq" target="1.8" />
+      <module name="user-service-sentinel" target="1.8" />
       <module name="user-service-slave-01" target="1.8" />
+      <module name="user-service-xxl-job" target="1.8" />
       <module name="user-service-zuul" target="1.8" />
     </bytecodeTargetLevel>
   </component>
@@ -68,19 +82,26 @@
       <module name="user-service" options="-parameters" />
       <module name="user-service-activiti" options="-parameters" />
       <module name="user-service-api" options="-parameters" />
+      <module name="user-service-cloud-stream" options="-parameters" />
       <module name="user-service-config" options="-parameters" />
       <module name="user-service-consume" options="-parameters" />
+      <module name="user-service-dynamic-datasource" options="-parameters" />
       <module name="user-service-feign-consume" options="-parameters" />
       <module name="user-service-gateway" options="-parameters" />
       <module name="user-service-jimureport" options="-parameters" />
       <module name="user-service-kafka" options="-parameters" />
+      <module name="user-service-mongodb" options="-parameters" />
       <module name="user-service-nacos-provide01" options="-parameters" />
       <module name="user-service-nacos-provide02" options="-parameters" />
+      <module name="user-service-oauth2" options="-parameters" />
       <module name="user-service-provide01" options="-parameters" />
       <module name="user-service-provide02" options="-parameters" />
       <module name="user-service-provide03" options="-parameters" />
       <module name="user-service-ribbon-hystrix-consume" options="-parameters" />
+      <module name="user-service-rocketmq" options="-parameters" />
+      <module name="user-service-sentinel" options="-parameters" />
       <module name="user-service-slave-01" options="-parameters" />
+      <module name="user-service-xxl-job" options="-parameters" />
       <module name="user-service-zuul" options="-parameters" />
     </option>
   </component>

@@ -1,14 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:redisson="http://redisson.org/schema/redisson"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://redisson.org/schema/redisson http://redisson.org/schema/redisson/redisson.xsd">
 
     <bean id="userBean" class="com.hh.userservice.pojo.UserBean">
         <property name="id" value="1"></property>
         <property name="username" value="rqh"></property>
-        <property name="email" value="976869901@qq.com"></property>
-        <property name="telephone" value="17879303721"></property>
+        <property name="email" value="9@qq.com"></property>
+        <property name="telephone" value="178****3721"></property>
         <property name="password" value="123456"></property>
+<!--        <property name="roles" ref="admin_role1"></property>-->
+        <property name="roles">
+            <set>
+                <ref bean="admin_role1"></ref>
+                <ref bean="admin_role2"></ref>
+            </set>
+        </property>
+    </bean>
+
+    <bean id="admin_role1" class="com.hh.userservice.pojo.Role">
+        <property name="roleId" value="1"></property>
+        <property name="name" value="admin"></property>
+        <property name="permissionId" value="1"></property>
+        <property name="permissions" ref="admin_permission"></property>
+    </bean>
+
+    <bean id="admin_role2" class="com.hh.userservice.pojo.Role">
+        <property name="roleId" value="2"></property>
+        <property name="name" value="admin"></property>
+        <property name="permissionId" value="2"></property>
+        <property name="permissions" ref="admin_permission"></property>
+    </bean>
+
+    <bean id="admin_permission" class="com.hh.userservice.pojo.Permission">
+        <property name="permissionId" value="1"></property>
+        <property name="permissionString" value="admin_manager"></property>
     </bean>
 
 <!--    <bean id="a" class="com.hh.userservice.pojo.A">-->

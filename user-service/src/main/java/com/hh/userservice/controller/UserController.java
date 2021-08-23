@@ -7,6 +7,7 @@ import com.hh.userservice.annotation.UserStatus;
 import com.hh.userservice.config.SpringApplicationUtils;
 import com.hh.userservice.config.UserEnum;
 import com.hh.userservice.pojo.Excel;
+import com.hh.userservice.pojo.Permission;
 import com.hh.userservice.pojo.UserBean;
 import com.hh.userservice.service.UserService;
 //import com.hh.userservice.strategy.Strategy;
@@ -19,7 +20,13 @@ import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
+import org.redisson.Redisson;
+import org.redisson.api.RLock;
+import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationContext;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,18 +43,72 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.AnnotatedType;
 import java.lang.reflect.Field;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.Executors;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 
 @Controller
 @RequestMapping("user")
 public class UserController {
 
     @Autowired
+    private ApplicationContext applicationContext;
+
+    @Autowired
     public UserService userService;
+
+    @Autowired
+    private StringRedisTemplate redisTemplate;
+
+    @Autowired
+    private RedissonClient redissonClient;
+
+    @Autowired
+    private Redisson redisson;
+
+    private static String lock = "lockInfo";
+
+
+    @RequestMapping("/redisson")
+    @ResponseBody
+    public String sendMessageByRedisson() {
+        try {
+            RLock lock = redisson.getLock(UserController.lock);
+            lock.lock();
+            lock.expire(3, TimeUnit.SECONDS);
+            redisTemplate.opsForValue().set("redisson", "开始进行分布式锁机制测试。",5,TimeUnit.SECONDS);
+            lock.unlock();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "ok";
+    }
+
+    @RequestMapping("/getCount")
+    @ResponseBody
+    public String sendMessage() {
+        try {
+            Boolean suo = redisTemplate.opsForValue().setIfAbsent(lock, "suo",1000, TimeUnit.SECONDS);
+            if (!suo) {
+                return "锁没有被释放。";
+            }
+            Integer count = Integer.valueOf(redisTemplate.opsForValue().get("count"));
+            if (count > 0) {
+//                count = count - 1;
+                redisTemplate.opsForValue().set("count", String.valueOf(--count));
+                System.out.println(count);
+            }
+            redisTemplate.delete(lock);
+            return "ok";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "fail";
+    }
 
     @UserStatus
     private String status;
@@ -255,7 +316,12 @@ public class UserController {
     @RequestMapping("findUserById/{id}")
     @ResponseBody
     public String findUserById(@PathVariable String id) {
-        List<com.hh.userservice.model.UserBean> userBean = userService.findUserById(id);
+        UserBean userBean = new UserBean();
+        userBean.setId("123");
+        userBean.setEmail("976869901@qq.com");
+        userBean.setPassword("123456");
+        userBean.setUsername("zhangsan");
+//        userBean.setRoles(null);
         return JSONObject.toJSONString(userBean);
     }
 
@@ -305,6 +371,20 @@ public class UserController {
         jsonArray.add(jsonObject2);
         jsonObject.put("data",jsonArray);
         return jsonObject.toJSONString();
+    }
+
+    @RequestMapping(value = "/getUserBean", method = RequestMethod.GET)
+    @ResponseBody
+    public UserBean getUserBean() {
+        UserBean user = userService.findUserBeanByUserBeanName("guorongyi");
+        return user;
+    }
+
+    @RequestMapping(value = "/getMigrateAsync", method = RequestMethod.GET)
+    @ResponseBody
+    public String dataMigrateAsync() {
+        userService.insertUesrData();
+        return "ok";
     }
 
 }

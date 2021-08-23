@@ -12,18 +12,26 @@
     <file url="file://$PROJECT_DIR$/../user-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-service-activiti" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-service-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../user-service-cloud-stream" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-service-config" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-service-consume" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../user-service-dynamic-datasource" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-service-feign-consume" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-service-gateway" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../user-service-gateway/src/main/resources/application.yml" charset="GBK" />
     <file url="file://$PROJECT_DIR$/../user-service-jimureport" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-service-kafka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../user-service-mongodb" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-service-nacos-provide01" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-service-nacos-provide02" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../user-service-oauth2" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-service-provide01" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-service-provide02" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-service-provide03" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-service-ribbon-hystrix-consume" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../user-service-rocketmq" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../user-service-sentinel" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../user-service-xxl-job" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../user-service-zuul" charset="UTF-8" />
   </component>
 </project>

@@ -1,0 +1,31 @@
+server:
+  port: 8070
+
+spring:
+  application:
+    name: user-service-cloud-rabbit
+  rabbitmq:
+    host: 192.168.231.128
+    port: 5672
+    username: root
+    password: 123456
+    virtual-host: /
+  cloud:
+    stream:
+      bindings: # 单体项目，所以消息输入和输出都使用同一个项目
+        output: # 输出到rabbit
+          destination: stream.message # 交换机名称
+          content-type: application/json
+          group: group
+        input: # 输出到stream
+          destination: stream.message # 交换机名称
+          content-type: application/json
+          group: group
+eureka:
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+  client:
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://eureka:7000/eureka,http://eureka01:7001/eureka,http://eureka02:7002/eureka

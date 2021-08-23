@@ -84,6 +84,48 @@ public class TestPoint {
     }
 
     @Test
+    public void getPointDataArray() {
+        String points = "[[121.533354,31.269018],[121.535929,31.270339],[121.540735,31.272246],[121.543782,31.274704],[121.548503,31.278078],[121.551464,31.279765],[121.558116,31.280389],[121.560004,31.275034],[121.559876,31.2743],[121.557043,31.271403],[121.553224,31.268725],[121.548975,31.2659],[121.545885,31.263332],[121.542495,31.259994],[121.541207,31.258747],[121.539062,31.261278],[121.538203,31.263222],[121.536015,31.26601],[121.533697,31.269092]]";
+        JSONArray jsonArray = JSONArray.parseArray(points);
+        String point = "";
+        for (int i = 0; i < jsonArray.size(); i++) {
+            JSONArray jsonArray1 = jsonArray.getJSONArray(i);
+            String jd = jsonArray1.getString(0);
+            String wd = jsonArray1.getString(1);
+            point += jd + "," + wd + "_";
+        }
+        point = point.substring(0, point.length() - 1);
+        String isPoint="121.544835,31.267177";
+        String[] sp = isPoint.split(",");
+        double xx= Double.parseDouble(sp[0]);
+        double yy= Double.parseDouble(sp[1]);
+        // 获取区域坐标信息。
+        String[] coordinates = point.split("_");
+        List<Point2D.Double> potions=new ArrayList<>();
+        for (String value : coordinates) {
+            String[] split = value.split(",");
+            double x = Double.parseDouble(split[0]);
+            double y = Double.parseDouble(split[1]);
+            Point2D.Double point2D = new Point2D.Double(x, y);
+            potions.add(point2D);
+        }
+
+        GeneralPath path=new GeneralPath();
+        Point2D.Double firstPoint2D = potions.get(0);
+        //设置起点坐标
+        path.moveTo(firstPoint2D.x,firstPoint2D.y);
+        for(Point2D.Double d:potions){
+            //将当前坐标连线到下方坐标
+            path.lineTo(d.x,d.y);
+        }
+        // 设置终点坐标（本质上是还是起点坐标。围成一个区域范围）
+        path.lineTo(firstPoint2D.x,firstPoint2D.y);
+        path.closePath();
+        boolean b = path.contains(xx, yy);
+        System.out.println(b);
+    }
+
+    @Test
     public void createPointDataArray() {
         List<List> pointList = new ArrayList<>();
         String points = "121.496528,31.252129;121.500034,31.253495;121.500532,31.251526;121.497627,31.250887";
@@ -164,7 +206,7 @@ public class TestPoint {
     @Test
     public void getLngLatPoint() {
 
-        String address = "虹桥路2272号,上海市长宁区程家桥街道华联超市(青溪店)春花苑,上海市长宁区虹桥街道中山西路1057号SOHO中山广场";
+        String address = "宣化路300号";
         String[] split1 = address.split(",");
         for (int i = 0; i < split1.length; i++) {
             // 获取地图的经纬度
@@ -198,5 +240,33 @@ public class TestPoint {
     }
 
 
+    @Test
+    public void testNumber() {
+        System.out.println((int) (Math.random() * 2));
+        Integer a = null;
+        System.out.println(a == null ? 120 : 1);
+    }
+
+    @Test
+    public void testMap() {
+        Map map = new HashMap();
+        map.put("like",1);
+        map.put("like",2);
+        map.put("like",4);
+        map.put("sex",1);
+        map.forEach((key,value) -> {
+            System.out.println("key:" + key +" "+"value:"+value);
+        });
+        System.out.println("------------");
+        Map map1 = new Hashtable();
+        map1.put("like",1);
+        map1.put("like",2);
+        map1.put("like",4);
+        map1.put("sex",1);
+        map1.forEach((key,value) -> {
+            System.out.println("key:" + key +" "+"value:"+value);
+        });
+
+    }
 
 }

@@ -6,12 +6,13 @@ spring:
   application:
     name: user-service-provide
   zipkin:
-    base-url: http://localhost:9411
+    base-url: http://192.168.10.55:9411
     enabled: true
     discovery-client-enabled: true
   sleuth:
     sampler:
-      probability: 1
+      percentage: 1.0
+      probability: 1.0
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: hacker

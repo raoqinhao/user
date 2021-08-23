@@ -18,5 +18,14 @@ spring:
         content:
           enabled: true
           paths: /**
+  redis:
+    host: 192.168.10.55
+    port: 6379
+    database: 0
 mybatis:
   mapper-locations: mappers/*.xml
+
+jasypt:
+  encryptor:
+    #这里可以理解成是加解密的时候使用的密钥
+    password: lqld

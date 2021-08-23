@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -29,12 +30,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserBean findUserBeanByUserBeanName(String username) {
-        UserBean userBean = new UserBean();
-        userBean.setId(UUID.randomUUID().toString().replaceAll("-",""));
-        userBean.setUsername("admin");
-        userBean.setPassword("123456");
-        userBean.setEmail("976869901@qq.com");
-        userBean.setTelephone("17879303721");
+        UserBean userBean = userMapper.findUserBeanByUserName(username);
         return userBean;
     }
 
@@ -51,5 +47,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserBean findUserBeanById(String id) {
         return userMapper.findUserBeanById(id);
+    }
+
+    @Override
+    public void insertUesrData() {
+        long start = System.currentTimeMillis();
+//        CompletableFuture.runAsync(() -> {
+//            userMapper.insertUserBeanData(new UserBean(UUID.randomUUID().toString().replaceAll("-","")
+//            ,"ZHANG","123","976869901@qq.com","17879303721"));
+//        });
+        System.out.println(System.currentTimeMillis() - start);
     }
 }

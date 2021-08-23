@@ -1,6 +1,6 @@
 package com.hh.userserviceprovide01.controller;
 
-import com.hh.userserviceprovide01.model.UserBean;
+import com.hh.userserviceprovide01.pojo.UserBean;
 import com.hh.userserviceprovide01.service.UserBeanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

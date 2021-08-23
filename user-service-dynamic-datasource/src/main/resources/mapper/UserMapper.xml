@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hh.userservicedynamicdatasource.mapper.UserMapper">
+
+    <resultMap id="resultMap" type="com.hh.userservicedynamicdatasource.pojo.User">
+        <id column="id" property="id"></id>
+        <result column="username" property="username"></result>
+        <result column="password" property="password"></result>
+        <result column="email" property="email"></result>
+        <result column="telephone" property="telephone"></result>
+    </resultMap>
+
+    <select id="getUserList" resultMap="resultMap">
+        select * from u_user
+    </select>
+
+</mapper>

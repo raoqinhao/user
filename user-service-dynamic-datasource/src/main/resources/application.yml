@@ -1,0 +1,33 @@
+server:
+  port: 3333
+
+spring:
+  datasource:
+    dynamic:
+      primary: db2
+      datasource:
+        db1:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          username: hacker
+          password: Rqh17879303721
+          url: jdbc:mysql://raoqinhao.mysql.rds.aliyuncs.com:3306/user?useUnicode=true&characterEncoding=UTF8&useSSL=false
+        db2:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          username: honey
+          password: YXKyxk0620
+          url: jdbc:mysql://honeyyxk.mysql.rds.aliyuncs.com:3306/user?useUnicode=true&characterEncoding=UTF8&useSSL=false
+      durid:
+        test-on-borrow: true
+        test-while-idle: true
+        initial-size: 1
+        max-active: 20
+        min-idle: 1
+        max-wait: 60000
+  autoconfigure:
+    exclude:  com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure # 去除druid配置
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.hh.userservicedynamicdatasource.pojo
+  configuration:
+    map-underscore-to-camel-case: true

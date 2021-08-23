@@ -1,0 +1,18 @@
+server:
+  port: 7070
+
+spring:
+  application:
+    name: xxl-job
+
+xxl:
+  job:
+    admin:
+      addresses: http://192.168.10.55:9999/xxl-job-admin/
+    executor:
+      appName: user-xxl-job
+      ip: 192.168.10.149
+      port: 9999
+      logpath: D:\project\user\user-service-xxl-job\applogs
+      logretentiondays: 30
+    accessToken:

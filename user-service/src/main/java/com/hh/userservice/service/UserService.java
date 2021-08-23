@@ -12,4 +12,7 @@ public interface UserService {
     List<com.hh.userservice.model.UserBean> findUserById(String id);
 
     UserBean findUserBeanById(String id);
+
+    void insertUesrData();
+
 }

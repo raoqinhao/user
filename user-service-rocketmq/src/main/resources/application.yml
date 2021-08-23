@@ -1,0 +1,11 @@
+server:
+  port: 8098
+spring:
+  application:
+    name: SPRING_BOOT_ROCKET_MQ
+
+rocketmq:
+  nameServer: 192.168.10.55:9876  # 遇到的坑，提示信息给的name-server标签，是有问题的
+  producer:
+    group: producer_group
+    send-message-timeout: 300000
